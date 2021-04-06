@@ -7,10 +7,13 @@ export default function signup() {
         console.log('you pressed submit!');
     }
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" placeholder="enter a username" name="username"/>
-            <input type="text" placeholder="enter a password" name="password"/>
-            <button type="submit">Sign Me Up Right Now!</button>
-        </form>
+        <>
+            <h1>SIGN UP!</h1>
+            <form onSubmit={onSubmit}>
+                <input type="text" placeholder="enter a username" name="username" autoFocus={true}/>
+                <div><input type="text" placeholder="enter a password" name="password"/></div>
+                <button type="submit">Sign Me Up Right Now!</button>
+            </form>
+        </>
     )
 }
