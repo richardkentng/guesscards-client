@@ -7,7 +7,7 @@
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify(body)
             }
-            let request = fetch(`${urlApi}/signup`, fetchOptions).then(res => res.json())
+            let request = fetch(`${urlApi}/auth/signup`, fetchOptions).then(res => res.json())
             return request
         }
         static login = (body) => {
@@ -16,7 +16,7 @@
                 headers: {"Content-Type": "application/json" },
                 body: JSON.stringify(body)
             }
-            let request = fetch(`${urlApi}/login`, fetchOptions).then(res => res.json())
+            let request = fetch(`${urlApi}/auth/login`, fetchOptions).then(res => res.json())
             return request
         }
 
