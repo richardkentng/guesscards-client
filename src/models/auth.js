@@ -10,6 +10,15 @@
             let request = fetch(`${urlApi}/signup`, fetchOptions).then(res => res.json())
             return request
         }
+        static login = (body) => {
+            const fetchOptions = {
+                method: "POST",
+                headers: {"Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            }
+            let request = fetch(`${urlApi}/login`, fetchOptions).then(res => res.json())
+            return request
+        }
 
         static sayHi = () => {
             console.log('hi!');
