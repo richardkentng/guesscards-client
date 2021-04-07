@@ -3,9 +3,6 @@ body {
 }
 
 
-nav {
-    background-color: rgb(163, 203, 117);
-}
 nav ul {
     list-style: none;
     display: flex;
