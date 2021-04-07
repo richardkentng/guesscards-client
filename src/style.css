@@ -13,3 +13,13 @@ nav ul li {
 nav ul li a:hover {
     color: white;
 }
+
+.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
