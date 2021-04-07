@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(226, 237, 186);
+}
+
+
+nav {
+    background-color: rgb(163, 203, 117);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 10px;
+}
+nav ul li a:hover {
+    color: white;
+}
