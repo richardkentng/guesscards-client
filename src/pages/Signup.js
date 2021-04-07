@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import AuthModel from '../models/auth'
 
 export default function Signup() {
 
@@ -7,7 +8,10 @@ export default function Signup() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log('you pressed submit!');
+        AuthModel.signup({username, password}).then(data => {
+            console.log('from client. data retrieved from signup', data);
+        })
+
     }
     return (
         <>
@@ -29,7 +33,7 @@ export default function Signup() {
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 /></div>
-                
+
                 <button type="submit">Sign Me Up Right Now!</button>
             </form>
         </>
