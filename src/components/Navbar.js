@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 import { useRecoilState } from 'recoil'
@@ -19,7 +19,8 @@ function Navbar(props) {
                 {user ? (
                     <>
                     <li><Link to="/sets">STUDYSETS</Link></li>
-                    <li onClick={logout}><a href="#">({user.username}) Log Out</a></li>
+                    {/* <li onClick={logout}><a href="#">({user.username}) Log Out</a></li> */}
+                    <li><button onClick={logout} className="link-button">({user.username}) Log Out</button></li>
                     </>
                 ) : (
                     <>
