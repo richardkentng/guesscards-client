@@ -1,8 +1,12 @@
+* {
+    font-family: sans-serif;
+}
 body {
     background-color: rgb(226, 237, 186);
 }
 
 
+/***********m   NAVBAR   **************/
 nav ul {
     list-style: none;
     display: flex;
@@ -13,7 +17,6 @@ nav ul li {
 nav ul li a:hover {
     color: white;
 }
-
 .link-button {
     background-color: transparent;
     border: none;
@@ -22,4 +25,33 @@ nav ul li a:hover {
     display: inline;
     margin: 0;
     padding: 0;
+}
+
+/************   'SetContainer page'  (/sets)    ********/
+.SetCard {
+    width: 200px;
+    height: 75;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+
+/* *********    general colors  ********/
+.gray {color: gray;}
+.gray-a {color: #aaa;}
+.silver {color: silver;}
+.red {color: red;}
+.green {color: green}
+
+
+/********     general font styling    ********/
+.thin {font-weight: 100;}
+.big {font-size: 2rem;}
+.big-bold {
+    font-size: 2rem;
+    font-weight: 900;
 }
