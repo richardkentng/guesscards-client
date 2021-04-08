@@ -20,6 +20,15 @@
             return request
         }
 
+        static verify = () => {
+            const fetchOptions = {
+                method: "GET",
+                headers: { authorization: `Bearer ${localStorage.uid}` }
+            }
+            let request = fetch(`${urlApi}/auth/verify`, fetchOptions).then(res => res.json())
+            return request
+        }
+
         static sayHi = () => {
             console.log('hi!');
         }
