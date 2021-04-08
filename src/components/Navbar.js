@@ -31,8 +31,8 @@ function Navbar(props) {
                 {user ? (
                     <>
                     <li><Link to="/sets">STUDYSETS</Link></li>
-                    {/* <li onClick={logout}><a href="#">({user.username}) Log Out</a></li> */}
                     <li><button onClick={logout} className="link-button">({user.username}) Log Out</button></li>
+                    <li>{user._id}</li>
                     </>
                 ) : (
                     <>
