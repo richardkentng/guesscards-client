@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
 
 import SetModel from '../models/set'
-
 import FormSetCreate from '../components/FormSetCreate'
 import SetCard from '../components/SetCard'
 
@@ -28,11 +26,7 @@ function SetContainer(props) {
     if (typeof sets === 'object') {
         uiSets = sets.map((set, idx) => {
             const numCards = set.cards.length
-            return (
-            <Link key={idx} to={`/sets/${set._id}`}>
-                <SetCard name={set.name} numCards={numCards}/>
-            </Link>
-            )
+            return <SetCard key={idx} {...set} numCards={numCards}/>
         })
     }
 
