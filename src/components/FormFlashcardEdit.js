@@ -14,18 +14,19 @@ function FormFlashcardEdit(props) {
         updateCard.ques = ques
         updateCard.ans = ans
         props.flashcardEdit(updateCard)
+        props.toggleDisplayCardvsEditForm()
     }
 
     return (
-        <form onSubmit={onSubmit} className="FlashCard" style={{backgroundColor: "#ddd"}}>
+        <form onSubmit={onSubmit} className="FlashCard" style={props.styleFlashCardeForm}>
                 <textarea 
                 type="text"
                 name="ques"
                 value={ques}
-                // autoFocus={true}
                 onChange={(e) => setQues(e.target.value)}
                 placeholder="question"
                 className="input-edit-fcard"
+                autoFocus={true}
                 />
 
                 <textarea 
