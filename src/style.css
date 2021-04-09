@@ -56,9 +56,15 @@ nav ul li a:hover {
 }
 .hover-to-see {opacity: 0.5;}
 .hover-to-see:hover {opacity: 1;}
+.btn-edit-fcard {
+    position: absolute;
+    top: 4px;
+    right: 45px;
+    padding: 0;
+}
 .btn-del-fcard {
     position: absolute;
-    top: 10px;
+    top: 4px;
     right: 10px;
     padding: 0;
 }
