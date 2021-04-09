@@ -15,15 +15,24 @@ class SetShow extends React.Component {
 
     componentDidMount() {
         SetModel.show(this.props.match.params.id).then(res => {
-            console.log('data retreived about this set!:', res.set);
             this.setState({set: res.set})
         })
     }
 
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
-            let updateSet = this.state.set
+            const updateSet = this.state.set
             updateSet.cards.push(res.card)
+            this.setState({set: updateSet})
+        })
+    }
+    flashcardDelete = (cardId) => {
+        SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
+            const updateSet = this.state.set
+            const remainingCards = this.state.set.cards.filter(c => {
+                return c._id !== res.card._id
+            })
+            updateSet.cards = remainingCards
             this.setState({set: updateSet})
         })
     }
@@ -33,7 +42,13 @@ class SetShow extends React.Component {
         let uiFlashcards
         if (typeof this.state.set === 'object') {
             uiFlashcards = this.state.set.cards.map((card, idx) => {
-                return <FlashCard key={idx} {...card}/>
+                return (
+                <FlashCard 
+                key={idx} 
+                {...card}
+                flashcardDelete={this.flashcardDelete}    
+                />
+                )
             })
             if (uiFlashcards.length === 0) {
                 uiFlashcards = 'This set has no flashcards  :\'(' 
@@ -57,7 +72,8 @@ class SetShow extends React.Component {
                 )}
 
                 {/* Form - Create flashcard! */}
-                {this.state.set && <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
+                {this.state.set && 
+                <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
 
                 {/* show cards! */}
                 {uiFlashcards}

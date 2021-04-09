@@ -38,6 +38,18 @@ class SetModel {
         const request = fetch(`${urlApi}/sets/${setId}/cards`, fetchOptions).then(res => res.json())
         return request
     }
+
+    static deleteFlashcard = (setId, cardId) => {
+        const fetchOptions = { 
+            method: "DELETE",
+            headers: { 
+                "authorization": `Bearer ${localStorage.uid}`,
+                "Content-Type": "application/json"
+            }
+        }
+        const request = fetch(`${urlApi}/sets/${setId}/cards/${cardId}`, fetchOptions).then(res => res.json())
+        return request
+    }
 }
 
 export default SetModel
