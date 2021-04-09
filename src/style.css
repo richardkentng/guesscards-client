@@ -55,6 +55,8 @@ nav ul li a:hover {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
     position: relative;
 }
+
+/************   'FlashCard component'     ********/
 .hover-to-see {opacity: 0.5;}
 .hover-to-see:hover {opacity: 1;}
 .btn-edit-fcard {
@@ -75,6 +77,27 @@ nav ul li a:hover {
     font-size: 16px;
     padding: 5px;
 }
+
+/************   'SetShow page'  (/sets/:id)    ********/
+.header-set-show {
+    background-color: white;
+    position: relative;
+}
+/*****   modal - edit set   ****/
+.form-edit-set {
+    display: flex;
+}
+.form-edit-set input, button {
+    font-size: 1rem;
+}
+.form-edit-set input {
+    font-weight: 900;
+    width: 70%;
+}
+.form-edit-set button {
+    width: 20%
+}
+
 
 
 /* *********    general colors  ********/
