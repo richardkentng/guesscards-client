@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
+import { toast } from 'react-toastify'
 
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import SetModel from '../models/set'
 
 Modal.setAppElement('#root')
-
 
 
 class SetShow extends React.Component {
@@ -55,6 +55,7 @@ class SetShow extends React.Component {
 
     onSubmitEditSetName = (e) => {
         e.preventDefault()
+        if (!this.state.inputSetName) return toast.warn('You should probably give your set a name...')
         SetModel.edit(this.state.set._id, this.state.inputSetName).then(res => {
             const updateSet = this.state.set
             updateSet.name = res.set.name
@@ -154,6 +155,7 @@ class SetShow extends React.Component {
                         placeholder="name of set"
                         autoFocus={true}
                         onChange={(e) => {this.setState({inputSetName: e.target.value})}}
+                        maxLength="255"
                         />
                         <button type="submit">Save</button>
                     </form>
