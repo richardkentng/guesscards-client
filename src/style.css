@@ -1,10 +1,12 @@
 * {
     font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 body {
     background-color: rgb(226, 237, 186);
 }
-
 
 /***********m   NAVBAR   **************/
 nav ul {
@@ -39,6 +41,16 @@ nav ul li a:hover {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
+.FlashCard {
+    width: 85%;
+    height: 75;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
 
 /* *********    general colors  ********/
 .gray {color: gray;}
@@ -55,3 +67,7 @@ nav ul li a:hover {
     font-size: 2rem;
     font-weight: 900;
 }
+
+/********     forms   ********/
+input {padding: 5px;}
+button {padding: 5px;}
