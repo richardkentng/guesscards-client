@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { toast } from 'react-toastify'
 // import SetModel from '../models/set'
 
@@ -34,7 +34,6 @@ function FormFlashcardCreate(props) {
                 name="ans"
                 value={ans}
                 placeholder="answer"
-                autoFocus={true}
                 onChange={(e) => setAns(e.target.value)}
                 />
             </div>
