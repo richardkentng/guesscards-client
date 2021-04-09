@@ -36,6 +36,14 @@ class SetShow extends React.Component {
             this.setState({set: updateSet})
         })
     }
+    flashcardEdit = (card) => {
+        SetModel.editFlashcard(this.state.set._id, card).then(res => {
+            console.log('res: ', res);
+            const updateSet = this.state.set
+            updateSet.cards.splice(res.cardIndex, 1, res.card)
+            this.setState(updateSet)
+        })
+    }
 
 
     render() {
@@ -47,6 +55,7 @@ class SetShow extends React.Component {
                 key={idx} 
                 {...card}
                 flashcardDelete={this.flashcardDelete}    
+                flashcardEdit={this.flashcardEdit}    
                 />
                 )
             })
