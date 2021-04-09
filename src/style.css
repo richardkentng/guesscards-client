@@ -36,13 +36,14 @@ nav ul li a:hover {
 .SetCard {
     width: 200px;
     height: 75;
-    background: white;
+    background-color: white;
     border-radius: 5px;
     padding: 5px;
     margin: 10px;
     text-align: center;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
+.SetCard:hover {background-color: #ccc;}
 
 .FlashCard {
     width: 85%;
