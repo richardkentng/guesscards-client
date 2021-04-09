@@ -1,4 +1,5 @@
 import React from 'react'
+import FormFlashcardEdit from './FormFlashcardEdit'
 
 function FlashCard(props) {
 
@@ -7,6 +8,7 @@ function FlashCard(props) {
     }
     
     return (
+        <>
         <div className="FlashCard">
             <p>{props.ques}</p>
             <p>{props.ans}</p>
@@ -16,6 +18,8 @@ function FlashCard(props) {
                 <i className="material-icons">delete</i>
             </button>
         </div>
+        <FormFlashcardEdit {...props} flashcardEdit={props.flashcardEdit}/>
+        </>
     )
 }
 
