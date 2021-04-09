@@ -25,6 +25,19 @@ class SetModel {
         const request = fetch(`${urlApi}/sets`, fetchOptions).then(res => res.json())
         return request
     }
+
+    static createFlashcard = (setId, body) => {
+        const fetchOptions = { 
+            method: "POST",
+            headers: { 
+                "authorization": `Bearer ${localStorage.uid}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        }
+        const request = fetch(`${urlApi}/sets/${setId}/cards`, fetchOptions).then(res => res.json())
+        return request
+    }
 }
 
 export default SetModel
