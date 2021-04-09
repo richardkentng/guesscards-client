@@ -20,8 +20,8 @@ export default function Login(props) {
             console.log('from client. res retrieved from login', res);
 
             const statusFirstNum = res.status.toString().substring(0,1)
-            if (statusFirstNum === "2") toast.success(res.msg)
-            else if (statusFirstNum === "4") toast.warn(res.msg)
+            // if (statusFirstNum === "2") toast.success(res.msg)
+            if (statusFirstNum === "4") toast.warn(res.msg)
             else if (statusFirstNum === "5") toast.error(res.msg)
 
             //if login successful:
