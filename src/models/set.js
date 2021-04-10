@@ -39,6 +39,15 @@ class SetModel {
         return request
     }
 
+    static delete = (setId) => {
+        const fetchOptions = { 
+            method: "DELETE",
+            headers: {"authorization": `Bearer ${localStorage.uid}`,}
+        }
+        const request = fetch(`${urlApi}/sets/${setId}`, fetchOptions).then(res => res.json())
+        return request
+    }
+
     static createFlashcard = (setId, body) => {
         const fetchOptions = { 
             method: "POST",
