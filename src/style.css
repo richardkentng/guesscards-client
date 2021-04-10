@@ -1,0 +1,121 @@
+* {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(226, 237, 186);
+}
+
+/***********m   NAVBAR   **************/
+nav {
+    padding: 10px 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 10px;
+}
+nav ul li a:hover {
+    color: white;
+}
+.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/************   'SetContainer page'  (/sets)    ********/
+.SetCard {
+    width: 200px;
+    height: 75;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+.SetCard:hover {background-color: #ccc;}
+
+.FlashCard {
+    width: 85%;
+    height: 75;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/************   'FlashCard component'     ********/
+.hover-to-see {opacity: 0.5;}
+.hover-to-see:hover {opacity: 1;}
+.btn-edit-fcard {
+    position: absolute;
+    top: 4px;
+    right: 45px;
+    padding: 0;
+}
+.btn-del-fcard {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    padding: 0;
+}
+.input-edit-fcard {
+    width: 100%;
+    height: 3rem;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/************   'SetShow page'  (/sets/:id)    ********/
+.header-set-show {
+    background-color: white;
+    position: relative;
+}
+/*****   modal - edit set   ****/
+.form-edit-set {
+    display: flex;
+}
+.form-edit-set input, button {
+    font-size: 1rem;
+}
+.form-edit-set input {
+    font-weight: 900;
+    width: 70%;
+}
+.form-edit-set button {
+    width: 20%
+}
+
+
+
+/* *********    general colors  ********/
+.gray {color: gray;}
+.gray-a {color: #aaa;}
+.silver {color: silver;}
+.red {color: red;}
+.green {color: green}
+
+
+/********     general font styling    ********/
+.thin {font-weight: 100;}
+.big {font-size: 2rem;}
+.big-bold {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+/********     forms   ********/
+input {padding: 5px;}
+button {padding: 5px;}
