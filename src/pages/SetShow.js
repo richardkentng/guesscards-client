@@ -67,6 +67,14 @@ class SetShow extends React.Component {
         })
     }
 
+    onSubmitDeleteEntireSet = (e) => {
+        e.preventDefault()
+        SetModel.delete(this.state.set._id).then(res => {
+            if (res.set._id === this.state.set._id) toast.success(`Successfully deleted the set '${this.state.set.name}'`)
+            this.props.history.push('/sets')
+        })
+    }
+
 
     render() {
         let uiFlashcards
@@ -160,6 +168,20 @@ class SetShow extends React.Component {
                         maxLength="255"
                         />
                         <button type="submit">Save</button>
+                    </form>
+                    {/* form to delete entire set */}
+                    {/* <label className="gray-a">DELETE ENTIRE SET</label> */}
+                    <form onSubmit={this.onSubmitDeleteEntireSet} className="form-edit-set">
+                        {/* <input
+                        type="text"
+                        name="name"
+                        value={this.state.inputSetName}
+                        placeholder="name of set"
+                        autoFocus={true}
+                        onChange={(e) => {this.setState({inputSetName: e.target.value})}}
+                        maxLength="255"
+                        /> */}
+                        <button type="submit">DELETE ENTIRE SET</button>
                     </form>
                 </Modal>
             </div>
