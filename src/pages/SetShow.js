@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
+import SetShowOptions from '../components/SetShowOptions'
 import SetModel from '../models/set'
 
 Modal.setAppElement('#root')
@@ -123,6 +124,7 @@ class SetShow extends React.Component {
                 <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
 
 
+                {/* <SetShowOptions/> */}
 
                 {/* show cards! */}
                 {uiFlashcards}
