@@ -10,8 +10,8 @@ function SetCard(props) {
     return (
         <div className="SetCard" onClick={onClickSetCard}>
             <p>
-                {props.name}
-                <span className={props.numCards ? "gray-a" : "red"}> ({props.numCards})</span>
+                <span className="title">{props.name}</span>
+                <span className={"num " + (props.numCards ? "gray-a" : "red")}> ({props.numCards})</span>
             </p>
         </div>
     )
