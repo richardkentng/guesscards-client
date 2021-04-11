@@ -71,7 +71,7 @@ class SetShow extends React.Component {
     }
 
     onSubmitDeleteEntireSet = (e) => {
-        e.preventDefault()
+        if (e) e.preventDefault()
         SetModel.delete(this.state.set._id).then(res => {
             if (res.set._id === this.state.set._id) toast.success(`Successfully deleted the set '${this.state.set.name}'`)
             this.props.history.push('/sets')
@@ -180,16 +180,19 @@ class SetShow extends React.Component {
                     <br/><br/><br/>
 
 
-                    {/* button to display form to delete set */}
+                    {/* button to display form to delete set OR to delete empty set */}
                     <button 
                     className="red"
                     onClick={() => {
-                        this.setState({
-                            styleBtnDisplayFormDeleteSet: {display: 'none'},
-                            styleFormDeleteSet: {display: 'block'}
-                        })
-                        const inputEl = document.querySelector('.typetodeleteset')
-                        setTimeout(() => {inputEl.focus()}, 25)
+                        if (this.state.set.cards.length === 0) this.onSubmitDeleteEntireSet(false)
+                        else {
+                            this.setState({
+                                styleBtnDisplayFormDeleteSet: {display: 'none'},
+                                styleFormDeleteSet: {display: 'block'}
+                            })
+                            const inputEl = document.querySelector('.typetodeleteset')
+                            setTimeout(() => {inputEl.focus()}, 25)
+                        }
                     }}
                     style={this.state.styleBtnDisplayFormDeleteSet}
                     >
@@ -217,7 +220,7 @@ class SetShow extends React.Component {
                         maxLength="255"
                         />
                         <p>
-                        {/* button to actually delete set */}
+                        {/* button to delete set with at least one flashcard */}
                         <button 
                         type="submit" 
                         className="w100p" 
