@@ -1,6 +1,5 @@
-    require('dotenv').config()
     const urlApi = process.env.REACT_APP_URL_API || "http://localhost:4000"
-    console.log('urlApi:::', urlApi);
+    
     class AuthModel {
         static signup = (body) => {
             const fetchOptions = {
