@@ -1,3 +1,4 @@
+require('dotenv').config()
 const urlApi = process.env.REACT_APP_URL_API || "http://localhost:4000"
 
 class SetModel {
