@@ -1,4 +1,4 @@
-    const urlApi = "https://react-guesscards-api.herokuapp.com" || "http://localhost:4000"
+    const urlApi = "http://localhost:4000" || "https://react-guesscards-api.herokuapp.com"
 
     class AuthModel {
         static signup = (body) => {
