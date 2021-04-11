@@ -119,13 +119,14 @@ nav ul li a:hover {
 
 
 /* *********    general colors  ********/
-.black {color: black;}
-.gray {color: gray;}
-.gray-a {color: #aaa;}
 .silver {color: silver;}
+.gray-a {color: #aaa;}
+.gray {color: gray;}
+.gray-72 {color: #727272;}
+.gray-5 {color: #555;}
+.black {color: black;}
 .red {color: red;}
 .green {color: green}
-
 
 /********     general font styling    ********/
 .thin {font-weight: 100;}
@@ -134,6 +135,9 @@ nav ul li a:hover {
 
 /********     general layout   ********/
 .w100p {width: 100%;}
+.tal {text-align: left;}
+.tac {text-align: center;}
+.tar {text-align: right;}
 .di {display: inline;}
 .dib {display: inline-block;}
 
