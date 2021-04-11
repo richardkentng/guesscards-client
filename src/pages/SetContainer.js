@@ -10,8 +10,7 @@ function SetContainer(props) {
 
     const setCreate = (name) => {
         SetModel.create({name}).then(res => {
-            // console.log('Client received response when trying to create set: ', res);
-            setSets([...sets, res.set])
+            props.history.push(`/sets/${res.set._id}`)
         })
     }
 
@@ -29,7 +28,6 @@ function SetContainer(props) {
             return <SetCard key={idx} {...set} numCards={numCards}/>
         })
     }
-
 
     return (
         <div>
