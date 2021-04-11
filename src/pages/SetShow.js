@@ -36,6 +36,7 @@ class SetShow extends React.Component {
             const updateSet = this.state.set
             updateSet.cards.unshift(res.card)
             this.setState({set: updateSet})
+            document.querySelector('.new-ques').focus()
         })
     }
 
@@ -145,7 +146,7 @@ class SetShow extends React.Component {
                 <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
 
 
-                {/* <SetShowOptions/> */}
+                <SetShowOptions/>
 
                 {/* show cards! */}
                 {uiFlashcards}
