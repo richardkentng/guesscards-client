@@ -1,5 +1,4 @@
-require('dotenv').config()
-const urlApi = process.env.REACT_APP_API || "http://localhost:4000"
+const urlApi = "https://react-guesscards-api.herokuapp.com" || "http://localhost:4000"
 
 class SetModel {
     static all = () => {
