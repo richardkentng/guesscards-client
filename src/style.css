@@ -99,8 +99,8 @@ nav ul li a:hover {
 }
 
 
-
 /* *********    general colors  ********/
+.black {color: black;}
 .gray {color: gray;}
 .gray-a {color: #aaa;}
 .silver {color: silver;}
@@ -111,11 +111,39 @@ nav ul li a:hover {
 /********     general font styling    ********/
 .thin {font-weight: 100;}
 .big {font-size: 2rem;}
+.bold {font-weight: 900;}
 .big-bold {
     font-size: 2rem;
     font-weight: 900;
 }
 
+/********     general layout   ********/
+.w100p {width: 100%;}
+.di {display: inline;}
+.dib {display: inline-block;}
+
 /********     forms   ********/
 input {padding: 5px;}
 button {padding: 5px;}
+::placeholder {color: silver;}
+
+/********     font-sizes   ********/
+.fs8 {font-size: 8px;}
+.fs9 {font-size: 9px;}
+.fs10 {font-size: 10px;}
+.fs11 {font-size: 11px;}
+.fs12 {font-size: 12px;}
+.fs13 {font-size: 13px;}
+.fs14 {font-size: 14px;}
+.fs15 {font-size: 15px;}
+.fs16 {font-size: 16px;}
+.fs17 {font-size: 17px;}
+.fs18 {font-size: 18px;}
+.fs19 {font-size: 19px;}
+.fs20 {font-size: 20px;}
+.fs21 {font-size: 21px;}
+.fs22 {font-size: 22px;}
+.fs23 {font-size: 23px;}
+.fs24 {font-size: 24px;}
+.fs25 {font-size: 25px;}
+
