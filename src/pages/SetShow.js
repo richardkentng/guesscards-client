@@ -15,15 +15,18 @@ class SetShow extends React.Component {
 
     state = {
         set: false,
-        inputSetName: '',
-        modalIsOpenEditSet: false
+        inputSetNameEdit: '',
+        inputSetNameDeleteSet: '',
+        modalIsOpenEditSet: false,
+        styleBtnDisplayFormDeleteSet: {display: 'block'},
+        styleFormDeleteSet: {display: 'none'}
     }
 
     componentDidMount() {
         SetModel.show(this.props.match.params.id).then(res => {
             this.setState({
                 set: res.set,
-                inputSetName: res.set.name
+                inputSetNameEdit: res.set.name
             })
         })
     }
@@ -56,8 +59,8 @@ class SetShow extends React.Component {
 
     onSubmitEditSetName = (e) => {
         e.preventDefault()
-        if (!this.state.inputSetName) return toast.warn('You should probably give your set a name...')
-        SetModel.edit(this.state.set._id, this.state.inputSetName).then(res => {
+        if (!this.state.inputSetNameEdit) return toast.warn('You should probably give your set a name...')
+        SetModel.edit(this.state.set._id, this.state.inputSetNameEdit).then(res => {
             const updateSet = this.state.set
             updateSet.name = res.set.name
             this.setState({
@@ -75,6 +78,15 @@ class SetShow extends React.Component {
         })
     }
 
+    onCloseModalEditSet = () => {
+        this.setState({
+            modalIsOpenEditSet: false,
+            styleBtnDisplayFormDeleteSet: {display: 'block'},
+            styleFormDeleteSet: {display: 'none'},
+            inputSetNameDeleteSet: '',
+            inputSetNameEdit: this.state.set.name
+        })
+    }
 
     render() {
         let uiFlashcards
@@ -98,8 +110,6 @@ class SetShow extends React.Component {
         return (
             <div>
                 <p><Link to="/sets">back to sets</Link></p>
-
-
 
 
                 {/* Set: <set name> (#)
@@ -126,7 +136,6 @@ class SetShow extends React.Component {
                 )}
 
 
-
                 {/* Form - Create flashcard! */}
                 {this.state.set && 
                 <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
@@ -138,19 +147,18 @@ class SetShow extends React.Component {
                 {uiFlashcards}
 
 
-
                 {/************************************************** 
                     MODAL to Edit Set Name or Delete Entire Set 
                 ***************************************************/}
                 <Modal 
                 isOpen={this.state.modalIsOpenEditSet}
-                onRequestClose={() => this.setState({modalIsOpenEditSet: false})}
+                onRequestClose={this.onCloseModalEditSet}
                 style={{overlay: {background: 'rgba(0,0,0,0.5)'}}}
                 >
                     {/* button to close modal */}
                     <button 
                     style={{float: 'right'}} 
-                    onClick={() => this.setState({modalIsOpenEditSet: false})}
+                    onClick={this.onCloseModalEditSet}
                     >
                     <i className="material-icons">cancel</i>
                     </button>
@@ -161,27 +169,63 @@ class SetShow extends React.Component {
                         <input
                         type="text"
                         name="name"
-                        value={this.state.inputSetName}
+                        value={this.state.inputSetNameEdit}
                         placeholder="name of set"
                         autoFocus={true}
-                        onChange={(e) => {this.setState({inputSetName: e.target.value})}}
+                        onChange={(e) => {this.setState({inputSetNameEdit: e.target.value})}}
                         maxLength="255"
                         />
                         <button type="submit">Save</button>
                     </form>
+                    <br/><br/><br/>
+
+
+                    {/* button to display form to delete set */}
+                    <button 
+                    className="red"
+                    onClick={() => {
+                        this.setState({
+                            styleBtnDisplayFormDeleteSet: {display: 'none'},
+                            styleFormDeleteSet: {display: 'block'}
+                        })
+                        const inputEl = document.querySelector('.typetodeleteset')
+                        setTimeout(() => {inputEl.focus()}, 25)
+                    }}
+                    style={this.state.styleBtnDisplayFormDeleteSet}
+                    >
+                    DELETE SET
+                    </button>
+
+
                     {/* form to delete entire set */}
-                    {/* <label className="gray-a">DELETE ENTIRE SET</label> */}
-                    <form onSubmit={this.onSubmitDeleteEntireSet} className="form-edit-set">
-                        {/* <input
+                    <form onSubmit={this.onSubmitDeleteEntireSet} className="form-del-set" style={this.state.styleFormDeleteSet}>
+                        {/* delete instructions */}
+                        <p className="red">
+                            <span className="bold">
+                            TO DELETE THIS SET AND ALL ({this.state.set && this.state.set.cards.length}) CARDS,
+                            </span> ENTER <span className="black bold">{this.state.set && this.state.set.name}</span>
+                            , THEN PRESS DELETE SET
+                        {/* input set name in order to delete set */}
+                        </p>
+                        <input
+                        placeholder="name of set"
                         type="text"
                         name="name"
-                        value={this.state.inputSetName}
-                        placeholder="name of set"
-                        autoFocus={true}
-                        onChange={(e) => {this.setState({inputSetName: e.target.value})}}
+                        className="w100p bold fs16 typetodeleteset"
+                        value={this.state.inputSetNameDeleteSet}
+                        onChange={(e) => {this.setState({inputSetNameDeleteSet: e.target.value})}}
                         maxLength="255"
-                        /> */}
-                        <button type="submit">DELETE ENTIRE SET</button>
+                        />
+                        <p>
+                        {/* button to actually delete set */}
+                        <button 
+                        type="submit" 
+                        className="w100p" 
+                        disabled={this.state.set ? (this.state.set.name.toLowerCase() === this.state.inputSetNameDeleteSet.toLowerCase() ? false : true) : true}
+                        >
+                        DELETE SET
+                        </button>
+                        </p>
                     </form>
                 </Modal>
             </div>
