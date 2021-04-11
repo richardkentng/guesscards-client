@@ -109,18 +109,21 @@ class SetShow extends React.Component {
 
         return (
             <div>
-                <p><Link to="/sets">back to sets</Link></p>
-
-
-                {/* Set: <set name> (#)
-                    <set id>    */}
                 {!this.state.set ? 'loading...' 
-                : 
-                (
+                : (
+                <>
                 <div className="header-set-show">
-                    <span className="big thin gray">Set:</span> 
-                    <span className="big-bold"> {this.state.set.name}</span>
+
+                    {/* back arrow */}
+                    <button className="btn-back-to-sets"><Link to="/sets">
+                    <i className="material-icons">arrow_back</i>
+                    </Link></button>
+
+                    {/* set title and (#) */}
+                    <div>
+                    <span className="big bold"> {this.state.set.name}</span>
                     <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray'}> ({this.state.set.cards.length})</span>
+                    </div>
 
 
                     {/* Button - Modal Trigger to Edit Set! */}
@@ -131,8 +134,9 @@ class SetShow extends React.Component {
                     <i className="material-icons">edit</i>
                     </button>
 
-                    <div className="gray-a"> ({this.props.match.params.id})</div>
                 </div>
+                <div className="gray-a"> ({this.props.match.params.id})</div>
+                </>
                 )}
 
 

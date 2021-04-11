@@ -38,12 +38,12 @@ nav ul li a:hover {
     height: 75;
     background-color: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 40px 10px;
     margin: 10px;
     text-align: center;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
-.SetCard:hover {background-color: #ccc;}
+.SetCard:hover {background-color: #eee;}
 
 .FlashCard {
     width: 85%;
@@ -80,9 +80,27 @@ nav ul li a:hover {
 
 /************   'SetShow page'  (/sets/:id)    ********/
 .header-set-show {
+    display: flex;
+    align-items: center;
     background-color: white;
     position: relative;
 }
+
+/***** back button - to sets  ****/
+.btn-back-to-sets { 
+    padding: 0px;
+    margin: 5px 10px;
+}
+.btn-back-to-sets a i {
+    font-size: 40px;
+    vertical-align:bottom;
+}
+.btn-back-to-sets a i:hover {
+    color: black;
+    background-color: #ddd;
+    font-weight: 600;
+}
+
 /*****   modal - edit set   ****/
 .form-edit-set {
     display: flex;
@@ -99,6 +117,7 @@ nav ul li a:hover {
 }
 
 
+
 /* *********    general colors  ********/
 .black {color: black;}
 .gray {color: gray;}
@@ -112,10 +131,6 @@ nav ul li a:hover {
 .thin {font-weight: 100;}
 .big {font-size: 2rem;}
 .bold {font-weight: 900;}
-.big-bold {
-    font-size: 2rem;
-    font-weight: 900;
-}
 
 /********     general layout   ********/
 .w100p {width: 100%;}
