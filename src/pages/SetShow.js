@@ -122,7 +122,7 @@ class SetShow extends React.Component {
 
                     {/* set title and (#) */}
                     <div>
-                    <span className="big bold"> {this.state.set.name}</span>
+                    <h1 className="dib mt6"> {this.state.set.name}</h1>
                     <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray'}> ({this.state.set.cards.length})</span>
                     </div>
 
