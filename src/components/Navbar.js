@@ -26,7 +26,7 @@ function Navbar(props) {
 
 
     return (
-        <nav style={{backgroundColor: user ? 'rgb(163, 203, 117)' : '#ffa4a4'}}>
+        <nav className={user ? 'nav-bb-in' : 'nav-bb-out'}>
             <ul>
                 {user ? (
                     <>
