@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Karma:wght@400;700&display=swap");
+.about-cont .paras p {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+}
+
 * {
   font-family: sans-serif;
   margin: 0px;
@@ -283,13 +290,6 @@ nav ul li *:hover {
 }
 
 /************   About page   ********/
-.about-cont .paras p {
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-}
-
 .card {
   border: 1px solid black;
   border-radius: 5px;

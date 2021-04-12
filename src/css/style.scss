@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Karma:wght@400;700&display=swap');
 
 $box-shadow1: 2px 2px 2px rgba(0,0,0,0.5);
+$bg: rgb(55, 55, 55);
+$b1: 1px solid black;
+$b2: 2px solid black;
+%border-bdrs {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+%card {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
 
 * {
     font-family: sans-serif;
@@ -8,18 +21,17 @@ $box-shadow1: 2px 2px 2px rgba(0,0,0,0.5);
     padding: 0px;
     box-sizing: border-box;
 }
+
+
 h1 {
     font-family: 'Karma', sans-serif;
 }
-
 p, button, input {
     font-size: 15px;
 }
-$bg: rgb(55, 55, 55);
 body {
     background-color: rgb(181, 197, 196);
     background-color: $bg;
-    // background: linear-gradient(black, rgb(181, 197, 196));
 }
 
 /***********m   NAVBAR   **************/
@@ -50,7 +62,6 @@ nav {
         }
         li {
             display: inline;
-            // float: right;
             margin-left: 10px;
             .link-button {
                 background-color: transparent;
@@ -145,9 +156,10 @@ nav {
     padding: 5px;
 }
 
+
+
 /************   'SetShow page'  (/sets/:id)    ********/
-$b1: 1px solid black;
-$b2: 2px solid black;
+
 .header-set-show {
     display: flex;
     background-color: rgb(94, 94, 94);
@@ -196,6 +208,8 @@ $b2: 2px solid black;
     }
 }
 .SetCard:hover {background-color: #eee;}
+
+
 
 /************   Landing Page  (/sets/:id)    ********/
 .Landing-header {
@@ -262,16 +276,7 @@ $b2: 2px solid black;
 }
 
 /************   About page   ********/
-%border-bdrs {
-    border: 1px solid black;
-    border-radius: 5px;
-}
-%card {
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-    padding: 10px;
-}
+
 .card {
     border: 1px solid black;
     border-radius: 5px;
@@ -474,6 +479,8 @@ button {padding: 5px;}
 .mlr3 {margin-left: 3rem;}
 .mlr4 {margin-left: 4rem;}
 .mlr5 {margin-left: 5rem;}
+
+
 
 @media (max-width: 500px) {
     .about-cont {
