@@ -13,7 +13,7 @@ export default function FormSetCreate(props) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="SetCard" style={{backgroundColor: 'silver'}}>
             <input 
             type="text"
             name="name"
@@ -21,8 +21,9 @@ export default function FormSetCreate(props) {
             placeholder="eg: ENG 101 Vocab"
             autoFocus={true}
             onChange={(e) => setSetName(e.target.value)}
+            className="w100p"
             />
-            <button type="submit">Create Set</button>
+            <button type="submit" className="w100p">Create Set</button>
         </form>
     )
 }

@@ -110,20 +110,6 @@ nav {
 
 /************   'SetContainer page'  (/sets)    ********/
 
-.SetCard {
-    width: 200px;
-    height: 75;
-    background-color: white;
-    border-radius: 5px;
-    padding: 40px 10px;
-    margin: 10px;
-    text-align: center;
-    box-shadow: $box-shadow1;
-    p {
-        font-size: 18px;
-    }
-}
-.SetCard:hover {background-color: #eee;}
 
 
 .FlashCard {
@@ -167,6 +153,26 @@ nav {
     background-color: gray;
     position: relative;
 }
+.SetCont-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    margin: 2rem auto;
+}
+.SetCard {
+    height: 75;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: $box-shadow1;
+    p {
+        font-size: 18px;
+    }
+}
+.SetCard:hover {background-color: #eee;}
+
 
 /***** back button - to sets  ****/
 .btn-back-to-sets { 
@@ -207,6 +213,12 @@ nav {
     border-radius: 5px;
 }
 %card {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+.card {
     border: 1px solid black;
     border-radius: 5px;
     background-color: white;
@@ -429,5 +441,7 @@ button {padding: 5px;}
     }
 }
 @media (max-width: 414px) {
-
+    .SetCont-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

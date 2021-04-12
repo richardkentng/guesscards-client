@@ -127,24 +127,6 @@ nav ul li *:hover {
 }
 
 /************   'SetContainer page'  (/sets)    ********/
-.SetCard {
-  width: 200px;
-  height: 75;
-  background-color: white;
-  border-radius: 5px;
-  padding: 40px 10px;
-  margin: 10px;
-  text-align: center;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-}
-.SetCard p {
-  font-size: 18px;
-}
-
-.SetCard:hover {
-  background-color: #eee;
-}
-
 .FlashCard {
   width: 85%;
   height: 75;
@@ -194,6 +176,30 @@ nav ul li *:hover {
   position: relative;
 }
 
+.SetCont-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.SetCard {
+  height: 75;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px 10px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.SetCard p {
+  font-size: 18px;
+}
+
+.SetCard:hover {
+  background-color: #eee;
+}
+
 /***** back button - to sets  ****/
 .btn-back-to-sets {
   padding: 0;
@@ -226,6 +232,13 @@ nav ul li *:hover {
 
 /************   About page   ********/
 .about-cont .paras p {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+}
+
+.card {
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
@@ -776,6 +789,11 @@ button {
   }
   .about-cont .paras p:first-child, .about-cont .paras p:last-child {
     background: transparent;
+  }
+}
+@media (max-width: 414px) {
+  .SetCont-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
