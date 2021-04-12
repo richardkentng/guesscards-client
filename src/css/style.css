@@ -16,19 +16,38 @@ p, button, input {
 
 body {
   background-color: #b5c5c4;
+  background-color: #373737;
 }
 
 /***********m   NAVBAR   **************/
 nav {
-  padding: 10px 0;
+  padding: 12px 0;
   background-color: white;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 nav ul {
   list-style: none;
-  display: flex;
+  margin-right: 10px;
+  text-align: center;
+}
+nav ul .logout, nav ul .signup, nav ul .login {
+  float: right;
+}
+nav ul .sets, nav ul .icon, nav ul .about {
+  float: left;
+}
+nav ul .signup {
+  margin-right: 20px;
+}
+nav ul .sets, nav ul .about {
+  margin-left: 30px;
+}
+nav ul .icon {
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
+  transform: translateY(-20%);
 }
 nav ul li {
+  display: inline;
   margin-left: 10px;
 }
 nav ul li .link-button {
@@ -41,7 +60,7 @@ nav ul li .link-button {
   padding: 0;
 }
 nav ul li *:hover {
-  color: white;
+  color: #2273ff;
 }
 
 .nav-bb-out {
@@ -171,7 +190,7 @@ nav ul li *:hover {
 .header-set-show {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: gray;
   position: relative;
 }
 
@@ -203,6 +222,42 @@ nav ul li *:hover {
 }
 .form-edit-set button {
   width: 20%;
+}
+
+/************   About page   ********/
+.about-cont .paras p {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+}
+
+.about-cont {
+  background-color: #ababab;
+  max-width: 700px;
+  padding: 30px;
+  margin: auto;
+}
+.about-cont .paras {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.about-cont .paras p:first-child {
+  text-align: center;
+}
+.about-cont .paras p:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.about-cont .paras p .profile-pic {
+  max-width: 125px;
+  border-radius: 5px;
+  display: inline;
+}
+.about-cont .paras p p {
+  display: flex;
+  justify-content: center;
 }
 
 /* *********    general colors  ********/
@@ -342,6 +397,30 @@ nav ul li *:hover {
   justify-content: center;
 }
 
+.ma {
+  margin: auto;
+}
+
+.m0a {
+  margin: 0 auto;
+}
+
+.mw2 {
+  max-width: 200px;
+}
+
+.mw3 {
+  max-width: 300px;
+}
+
+.mw4 {
+  max-width: 400px;
+}
+
+.mw5 {
+  max-width: 500px;
+}
+
 /********     forms   ********/
 input {
   padding: 5px;
@@ -358,6 +437,11 @@ button {
 /********     other   ********/
 .border {
   border: 1px solid black;
+}
+
+.link-sneaky {
+  text-decoration: none;
+  color: black;
 }
 
 /********     font-sizes   ********/
@@ -592,6 +676,107 @@ button {
 
 .mb10 {
   margin-bottom: 10px;
+}
+
+.mtr1 {
+  margin-top: 1rem;
+}
+
+.mtr2 {
+  margin-top: 2rem;
+}
+
+.mtr3 {
+  margin-top: 3rem;
+}
+
+.mtr4 {
+  margin-top: 4rem;
+}
+
+.mtr5 {
+  margin-top: 5rem;
+}
+
+.mrr1 {
+  margin-right: 1rem;
+}
+
+.mrr2 {
+  margin-right: 2rem;
+}
+
+.mrr3 {
+  margin-right: 3rem;
+}
+
+.mrr4 {
+  margin-right: 4rem;
+}
+
+.mrr5 {
+  margin-right: 5rem;
+}
+
+.mbr1 {
+  margin-bottom: 1rem;
+}
+
+.mbr2 {
+  margin-bottom: 2rem;
+}
+
+.mbr3 {
+  margin-bottom: 3rem;
+}
+
+.mbr4 {
+  margin-bottom: 4rem;
+}
+
+.mbr5 {
+  margin-bottom: 5rem;
+}
+
+.mlr1 {
+  margin-left: 1rem;
+}
+
+.mlr2 {
+  margin-left: 2rem;
+}
+
+.mlr3 {
+  margin-left: 3rem;
+}
+
+.mlr4 {
+  margin-left: 4rem;
+}
+
+.mlr5 {
+  margin-left: 5rem;
+}
+
+@media (max-width: 500px) {
+  .about-cont {
+    background-color: #727272;
+  }
+  .about-cont .paras {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .about-cont .paras p {
+    border: 0;
+    border-radius: 0;
+  }
+  .about-cont .paras p:first-child, .about-cont .paras p:last-child {
+    background: transparent;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
