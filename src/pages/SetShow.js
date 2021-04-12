@@ -33,7 +33,7 @@ class SetShow extends React.Component {
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
             const updateSet = this.state.set
-            updateSet.cards.unshift(res.card)
+            updateSet.cards.push(res.card)
             this.setState({set: updateSet})
             document.querySelector('.new-ques').focus()
         })
