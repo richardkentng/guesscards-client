@@ -18,7 +18,7 @@ export default function Signup(props) {
         if (!username || !password) return toast.warn('Please fill out both fields!')
         if (password.length < 8) return toast.warn('Password must be at least 8 characters long.')
         if (password.length > 100) return toast.warn('Password may not exceed 100 characters!')
-        if (username.length > 100) return toast.warn('Username may not exceed 100 characters!')
+        if (username.length > 50) return toast.warn('Username may not exceed 50 characters!')
         if (username.split('').includes(' ')) return toast.warn('Username may not contain spaces!')
 
         AuthModel.signup({username, password}).then(res => {
