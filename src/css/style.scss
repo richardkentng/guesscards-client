@@ -197,6 +197,36 @@ $b2: 2px solid black;
 }
 .SetCard:hover {background-color: #eee;}
 
+/************   Landing Page  (/sets/:id)    ********/
+.Landing-header {
+    color: white;
+    text-align: center;
+    line-height: 20px;;
+    margin-top: 2rem;
+}
+.Landing-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 600px;
+    margin: 2rem auto;
+    color: white;
+    text-align: center;
+
+    section {
+        margin: 2rem auto;
+        img {
+            width: 100%;
+        }
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: rgb(30, 203, 255);
+    }
+}
 
 /***** back button - to sets  ****/
 .btn-back-to-sets { 

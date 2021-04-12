@@ -223,6 +223,35 @@ nav ul li *:hover {
   background-color: #eee;
 }
 
+/************   Landing Page  (/sets/:id)    ********/
+.Landing-header {
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 2rem;
+}
+
+.Landing-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  max-width: 600px;
+  margin: 2rem auto;
+  color: white;
+  text-align: center;
+}
+.Landing-grid section {
+  margin: 2rem auto;
+}
+.Landing-grid section img {
+  width: 100%;
+}
+.Landing-grid p {
+  margin-bottom: 10px;
+}
+.Landing-grid a {
+  color: #1ecbff;
+}
+
 /***** back button - to sets  ****/
 .btn-back-to-sets {
   padding: 0;
