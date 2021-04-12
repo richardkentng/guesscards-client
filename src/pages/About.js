@@ -25,7 +25,9 @@ function About() {
 
                 <p><b>My future?</b>  My time at General Assembly is coming to a close alarming fast!  What does the future hold?  More work!  More grinding!  I must learn the art of algorithms and data structures and interviewing!  I must increase my skills and improve my projects!  I must make time for <a className="link-sneaky" href="https://vimeo.com/332749292" target="_blank">animation</a> as well!  YOLO!</p>
 
-                <p><b>Interested in learning more about me?</b>  Check out my info!  Have a good one! :P
+                <p>
+                    <b>Interested in learning more about me?</b>  
+                    Check out my info!  Have a good one! :P
                     <p className="mtr1">richardkentng@gmail.com</p>
                     <p><a href="https://www.linkedin.com/in/richard-kent-ng/" target="_blank">Linkedin</a></p>
                     <p><a href="https://github.com/richardkentng" target="_blank">Github</a></p>

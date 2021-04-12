@@ -29,10 +29,6 @@
             let request = fetch(`${urlApi}/auth/verify`, fetchOptions).then(res => res.json())
             return request
         }
-
-        static sayHi = () => {
-            console.log('hi!');
-        }
     }
 
     export default AuthModel

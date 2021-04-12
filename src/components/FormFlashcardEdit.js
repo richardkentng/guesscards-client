@@ -39,7 +39,6 @@ function FormFlashcardEdit(props) {
                 />
 
             <button type="submit"><i className="material-icons">save</i></button>
-            {/* <button type="button"><i className="material-icons">cancel</i></button> */}
         </form>
     )
 }

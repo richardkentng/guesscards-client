@@ -16,7 +16,6 @@ function SetContainer(props) {
 
     useEffect(() => {
         SetModel.all().then(data => {
-            // console.log('from client. DATA RECEIVED from get request to domain/sets:', data.sets);
             setSets(data.sets)
         })
     }, [])
