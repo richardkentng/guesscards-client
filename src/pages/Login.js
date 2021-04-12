@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import { toast } from 'react-toastify'
-
+import {Link} from 'react-router-dom'
 import {useSetRecoilState} from 'recoil'
 import {userState} from '../recoil/atom'
-
 import AuthModel from '../models/auth'
 import login_drawn from '../images/login_drawn.png'
 
@@ -45,8 +44,8 @@ export default function Login(props) {
                 <div className="inputs">
                     <div>
                         <input 
+                        placeholder="your username" 
                         type="text" 
-                        placeholder="enter a username" 
                         name="username" value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
                         autoFocus={true}
@@ -55,16 +54,17 @@ export default function Login(props) {
     
                     <div>
                         <input 
+                        placeholder="your password" 
                         type="password" 
-                        placeholder="enter a password" 
                         name="password" 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         />
                     </div>
     
-                    <button type="submit" className="btn-login">Log me in baby!</button>
+                    <button type="submit" className="btn-login">Log Me In Baby!</button>
                 </div>
+                    <p className="tac">No account? <Link to="/signup">Sign Up</Link></p>
             </form>
         </>
     )
