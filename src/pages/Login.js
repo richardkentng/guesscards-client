@@ -17,8 +17,6 @@ export default function Login(props) {
         if (!username || !password) return toast.warn('Please fill out both fields!')
         
         AuthModel.login({username, password}).then(res => {
-            console.log('from client. res retrieved from login', res);
-
             const statusFirstNum = res.status.toString().substring(0,1)
             if (statusFirstNum === "4") toast.warn(res.msg)
             else if (statusFirstNum === "5") toast.error(res.msg)

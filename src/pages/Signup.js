@@ -22,9 +22,7 @@ export default function Signup(props) {
         if (username.split('').includes(' ')) return toast.warn('Username may not contain spaces!')
 
         AuthModel.signup({username, password}).then(res => {
-            console.log('from client. res retrieved from api\'s signup route', res);
             //store token in local storage
-
             const statusFirstNum = res.status.toString().substring(0,1)
             if (statusFirstNum === "2") toast.success(res.msg)
             else if (statusFirstNum === "4") toast.warn(res.msg)
