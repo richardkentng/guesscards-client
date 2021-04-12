@@ -11,7 +11,7 @@ import SetShow from './pages/SetShow'
 import SetContainer from './pages/SetContainer'
 
 
-import './style.css'
+import './css/style.css'
 
 toast.configure()
 function App() {
