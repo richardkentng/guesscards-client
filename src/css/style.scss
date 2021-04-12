@@ -108,12 +108,10 @@ nav {
 }
 @import 'btn-signuplogin';
 
-/************   'SetContainer page'  (/sets)    ********/
 
-
+/************   'FlashCard component'     ********/
 
 .FlashCard {
-    width: 85%;
     height: 75;
     background: white;
     border-radius: 5px;
@@ -122,9 +120,10 @@ nav {
     box-shadow: $box-shadow1;
     position: relative;
 }
+.fcard-padding-right {
+    padding-right: 80px;
+}
 
-
-/************   'FlashCard component'     ********/
 .hover-to-see {opacity: 0.5;}
 .hover-to-see:hover {opacity: 1;}
 .btn-edit-fcard {
@@ -147,12 +146,37 @@ nav {
 }
 
 /************   'SetShow page'  (/sets/:id)    ********/
+$b1: 1px solid black;
+$b2: 2px solid black;
 .header-set-show {
     display: flex;
-    align-items: center;
-    background-color: gray;
+    background-color: rgb(94, 94, 94);
     position: relative;
+    .h1-num {
+        line-height: 30px;
+        margin-top: 10px;
+        h1 {
+            color: white;
+        }
+    }
+    .btn-back-to-sets {
+        align-self: flex-start;
+        margin-right: 15px;
+    }
 }
+.SetShow-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 700px;
+    background-color: gray;
+    border-radius: 5px;;
+    margin: 1rem auto;
+    padding: 20px;
+}
+
+
+/************   'SetContainer page'  (/sets)    ********/
+
 .SetCont-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -268,6 +292,7 @@ nav {
 .black {color: black;}
 .red {color: red;}
 .green {color: green}
+.white {color: white;}
 
 .bgr {background-color: red;}
 .bgg {background-color: green;}

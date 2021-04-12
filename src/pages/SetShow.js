@@ -112,17 +112,18 @@ class SetShow extends React.Component {
                 {!this.state.set ? 'loading...' 
                 : (
                 <>
+                <br/>
                 <div className="header-set-show">
 
                     {/* back arrow */}
-                    <button className="btn-back-to-sets"><Link to="/sets">
-                    <i className="material-icons">arrow_back</i>
-                    </Link></button>
+                        <button className="btn-back-to-sets"><Link to="/sets">
+                        <i className="material-icons">arrow_back</i>
+                        </Link></button>
 
                     {/* set title and (#) */}
-                    <div>
-                    <h1 className="dib mt6"> {this.state.set.name}</h1>
-                    <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray'}> ({this.state.set.cards.length})</span>
+                    <div className="h1-num">
+                        <h1 className="dib"> {this.state.set.name}</h1>
+                        <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray-a'}> ({this.state.set.cards.length})</span>
                     </div>
 
 
@@ -135,18 +136,18 @@ class SetShow extends React.Component {
                     </button>
 
                 </div>
-                <div className="gray-a"> ({this.props.match.params.id})</div>
                 </>
                 )}
 
 
-                {/* Form - Create flashcard! */}
-                {this.state.set && 
-                <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
-
-
-                {/* show cards! */}
-                {uiFlashcards}
+                <div className="SetShow-grid">
+                    {/* Form - Create flashcard! */}
+                    {this.state.set && 
+                    <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
+    
+                    {/* show cards! */}
+                    {uiFlashcards}
+                </div>
 
 
                 {/************************************************** 
