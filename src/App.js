@@ -9,6 +9,7 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import SetShow from './pages/SetShow'
 import SetContainer from './pages/SetContainer'
+import About from './pages/About'
 
 
 import './css/style.css'
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/" component={Landing}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>
+        <Route path="/about" component={About}/>
         <Route path="/sets/:id" component={SetShow}/>
         <Route path="/sets" component={SetContainer}/>
       </Switch>
