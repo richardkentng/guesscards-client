@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import AuthModel from '../models/auth'
 import {useSetRecoilState} from 'recoil'
 import {userState} from '../recoil/atom'
-
+import signup_drawn from '../images/signup_drawn.png'
 export default function Signup(props) {
 
     const setUser = useSetRecoilState(userState)
@@ -33,26 +33,36 @@ export default function Signup(props) {
     }
     return (
         <>
-            <h1>SIGN UP!</h1>
-            <form onSubmit={onSignup}>
+            <form onSubmit={onSignup} className="form-signuplogin">
+            <div className="pic-cta">
+                <img src={signup_drawn} alt="sign up"/>
+                <h1>SIGN UP!</h1>
+            </div>
 
-                <input 
-                type="text" 
-                placeholder="enter a username" 
-                name="username" value={username} 
-                onChange={(e) => setUsername(e.target.value)} 
-                autoFocus={true}
-                />
-
-                <div><input 
-                type="password" 
-                placeholder="enter a password" 
-                name="password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                /></div>
-
-                <button type="submit">Sign Me Up Right Now!</button>
+                <div class="inputs">
+                    <div>
+                        <input 
+                        placeholder="enter a username" 
+                        id="username-su"
+                        type="text" 
+                        name="username" value={username} 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        autoFocus={true}
+                        />
+                    </div>
+    
+                    <div>
+                        <input 
+                        placeholder="enter a password" 
+                        type="password" 
+                        name="password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        />
+                    </div>
+    
+                    <button className="btn-signup" type="submit">Sign Me Up Right Now!</button>
+                </div>
             </form>
         </>
     )

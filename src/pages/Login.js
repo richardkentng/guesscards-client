@@ -5,6 +5,7 @@ import {useSetRecoilState} from 'recoil'
 import {userState} from '../recoil/atom'
 
 import AuthModel from '../models/auth'
+import login_drawn from '../images/login_drawn.png'
 
 export default function Login(props) {
 
@@ -35,26 +36,35 @@ export default function Login(props) {
 
     return (
         <>
-            <h1>LOG IN!</h1>
-            <form onSubmit={onLogin}>
+            <form onSubmit={onLogin} className="form-signuplogin">
+                <div className="pic-cta">
+                    <img src={login_drawn} alt="log in"/>
+                    <h1>LOG IN!</h1>
+                </div>
 
-                <input 
-                type="text" 
-                placeholder="enter a username" 
-                name="username" value={username} 
-                onChange={(e) => setUsername(e.target.value)} 
-                autoFocus={true}
-                />
-
-                <div><input 
-                type="password" 
-                placeholder="enter a password" 
-                name="password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                /></div>
-
-                <button type="submit">Log me in baby!</button>
+                <div className="inputs">
+                    <div>
+                        <input 
+                        type="text" 
+                        placeholder="enter a username" 
+                        name="username" value={username} 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        autoFocus={true}
+                        />
+                    </div>
+    
+                    <div>
+                        <input 
+                        type="password" 
+                        placeholder="enter a password" 
+                        name="password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        />
+                    </div>
+    
+                    <button type="submit" className="btn-login">Log me in baby!</button>
+                </div>
             </form>
         </>
     )
