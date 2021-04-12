@@ -32,7 +32,7 @@ function SetContainer(props) {
     return (
         <div className="SetCont-grid">
             <FormSetCreate setCreate={setCreate}/>
-            {!sets ? 'loading...' : (sets.length ? uiSets : 'You have no sets.   Don\'t worry, create a  new set of cards now!')}
+            {!sets ? 'loading...' : (sets.length ? uiSets : '')}
         </div>
     )
 }

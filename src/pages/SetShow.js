@@ -101,9 +101,6 @@ class SetShow extends React.Component {
                 />
                 )
             })
-            if (uiFlashcards.length === 0) {
-                uiFlashcards = 'This set has no flashcards  :\'(' 
-            }
         }
 
 
