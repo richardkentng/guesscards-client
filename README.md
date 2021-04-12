@@ -71,6 +71,7 @@ I must look into this.
 ### Cool features
 ##### Delete Confirmation
 ![delete](/src/images/delete.png)
+
 If you want to delete a set of cards, you need only click the 
 edit icon to see the delete button above.  If your set has no
 cards, then the delete button will work right away.  But if it 
