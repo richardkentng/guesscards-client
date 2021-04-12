@@ -35,7 +35,7 @@ function FlashCard(props) {
 
     return (
         <>
-        <div className="FlashCard" style={styleFlashCard} onClick={toggleDisplayAns}>
+        <div className="FlashCard fcard-padding-right" style={styleFlashCard} onClick={toggleDisplayAns}>
             <p>{props.ques}</p>
             <p style={styleAns}>{props.ans}</p>
             {/* <p>{props._id}</p> */}
