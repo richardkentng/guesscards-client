@@ -58,16 +58,6 @@ funcitonal components are popular, so I best figure out this
 error soon!
 
 
-### Bugs
-##### Editing the wrong flashcard?
-Yup.  Especially after a card is deleted, editing the next card
-will populate the edit fields with the wrong information! This is
-rather strange because each flashcard has its own unique edit form.
-Perhaps deleting a flashcard confuses the edit form association.
-I must look into this.
-
-
-
 ### Cool features
 ##### Delete Confirmation
 ![delete](/src/images/delete.png)
