@@ -9,8 +9,8 @@ import login_drawn from '../images/login_drawn.png'
 export default function Login(props) {
 
     const setUser = useSetRecoilState(userState)
-    const [username, setUsername] = useState('shadow337')
-    const [password, setPassword] = useState('ip2pgf')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     const onLogin = (e) => {
         e.preventDefault()
