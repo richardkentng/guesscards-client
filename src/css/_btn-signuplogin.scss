@@ -1,0 +1,18 @@
+.btn-signup {
+    background: linear-gradient(0.25turn,  rgb(109, 196, 183),  rgb(100, 177, 165));
+    background-color: rgb(100, 177, 165);
+    border-radius: 5px;
+}
+.btn-signup:hover {
+    background: linear-gradient(0.25turn, rgb(93, 222, 202),  rgb(73, 184, 168));
+    background-color: rgb(83, 206, 188);
+}
+.btn-login {
+    background: linear-gradient(0.25turn, rgb(153, 199, 112), rgb(104, 177, 100));
+    background-color: rgb(104, 177, 100);
+    border-radius: 5px;
+}
+.btn-login:hover {
+    background: linear-gradient(0.25turn, rgb(186, 250, 112), rgb(69, 193, 49));
+    background-color: rgb(93, 206, 83);
+}
