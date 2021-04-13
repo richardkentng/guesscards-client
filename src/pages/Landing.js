@@ -16,7 +16,7 @@ export default function Landing() {
 
             <div className="Landing-grid">
                 <section>
-                <p>1 create a set.</p>
+                <p>1 Create a set.</p>
                 <img src={step1} alt="step1"/>
                 </section>
 
