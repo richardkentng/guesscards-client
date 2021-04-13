@@ -18,10 +18,10 @@
 ![login](/src/rm_images/login.png)
 
 ### Mobile Responsiveness 
-![mr1](/src/rm_images/mr1.png)
-![mr2](/src/rm_images/mr2.png)
-![mr3](/src/rm_images/mr3.png)
-![mr4](/src/rm_images/mr4.png)
+![wf1](/src/rm_images/wf1.png)
+![wf2](/src/rm_images/wf2.png)
+![wf3](/src/rm_images/wf3.png)
+![wf4](/src/rm_images/wf4.png)
 
 ### Technologies Used:
 - Mongoose
@@ -98,34 +98,34 @@ below.  Isn't that cute!!
 
 ### Final Thoughts
 
-##### SASS
+#### SASS
 SASS makes CSS so much more intuitive.  
 Nested rules are a great way to visualize exactly which elements are being styled.
 This was especially helpful because I wrote my own CSS for this projet instead of 
 using a CSS library. I like how it turned out!
 
-##### React
+#### React
 It's great how React how updates specific components without reloading the whole page!
 Though I'd better figure out why useEffect is giving me that dependency error.
 
-##### The Backend
+#### The Backend
 It was pretty cool creating my own backend for this project.
 The data that my backend sent back looked just like the json data
 that I saw from APIs that we've worked with in the past!
 
-##### Guesscards
+#### Guesscards
 The functionality of this project is rather basic.  If you read my user stories 
 and checked out my deployed app, you'd notice that there were SO MANY features that
 I did not get to implement.  I hope to keep updating this project so that it becomes
 something that myself and others actually want to use!
 
-##### A New Beginning?
+#### A New Beginning?
 This was my final project for my online bootcamp and general assembly.
 I must keep up the grind and keep learning! :P
 
 - Contact
-- richardkentng@gmail.com
-- [My Linkedin](https://www.linkedin.com/in/richard-kent-ng/)
+  - richardkentng@gmail.com
+  - [My Linkedin](https://www.linkedin.com/in/richard-kent-ng/)
 
 ### Some Wireframes
 [wf1](/src/rm_images/wf1.png)
