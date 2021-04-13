@@ -18,10 +18,10 @@
 ![login](/src/rm_images/login.png)
 
 ### Mobile Responsiveness 
-![wf1](/src/rm_images/wf1.png)
-![wf2](/src/rm_images/wf2.png)
-![wf3](/src/rm_images/wf3.png)
-![wf4](/src/rm_images/wf4.png)
+![mr1](/src/rm_images/mr1.png)
+![mr2](/src/rm_images/mr2.png)
+![mr3](/src/rm_images/mr3.png)
+![mr4](/src/rm_images/mr4.png)
 
 ### Technologies Used:
 - Mongoose
