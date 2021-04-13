@@ -45,7 +45,7 @@ export default function Signup(props) {
                 <h1>SIGN UP!</h1>
             </div>
 
-                <div class="inputs">
+                <div className="inputs">
                     <div>
                         <input 
                         placeholder="enter a username" 
