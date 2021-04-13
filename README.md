@@ -128,9 +128,9 @@ I must keep up the grind and keep learning! :P
   - [My Linkedin](https://www.linkedin.com/in/richard-kent-ng/)
 
 ### Some Wireframes
-[wf1](/src/rm_images/wf1.png)
-[wf2](/src/rm_images/wf2.png)
-[wf3](/src/rm_images/wf3.png)
-[wf4](/src/rm_images/wf4.png)
+![wf1](/src/rm_images/wf1.png)
+![wf2](/src/rm_images/wf2.png)
+![wf3](/src/rm_images/wf3.png)
+![wf4](/src/rm_images/wf4.png)
 
 ### Have a good one!
