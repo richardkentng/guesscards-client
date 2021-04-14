@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import SetModel from '../models/set'
+import react from 'react'
 
 Modal.setAppElement('#root')
 
@@ -23,11 +24,19 @@ class SetShow extends React.Component {
 
     componentDidMount() {
         SetModel.show(this.props.match.params.id).then(res => {
-            this.setState({
-                set: res.set,
-                inputSetNameEdit: res.set.name
-            })
+
+                if(!Object.keys(res).includes('set')) {
+                    toast.warn(res.msg)  
+                    return this.props.history.push('/sets')
+                } 
+
+                this.setState({
+                    set: res.set,
+                    inputSetNameEdit: res.set.name
+                })
         })
+
+
     }
 
     flashcardCreate = (body) => {
