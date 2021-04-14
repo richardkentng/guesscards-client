@@ -30,7 +30,7 @@ function About() {
                     Check out my info!  Have a good one! :P
                     <p className="mtr1">richardkentng@gmail.com</p>
                     <p><a href="https://www.linkedin.com/in/richard-kent-ng/" target="_blank" rel="noreferrer">Linkedin</a></p>
-                    <p><a href="https://github.com/richardkentng" target="_blank" rel="noreferrer">Github</a></p>
+                    <p><a href="https://github.com/richardkentng/guesscards-client" target="_blank" rel="noreferrer">Github</a></p>
                 </p>
             </div>
             
