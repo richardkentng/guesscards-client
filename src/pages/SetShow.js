@@ -42,7 +42,7 @@ class SetShow extends React.Component {
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
             const updateSet = this.state.set
-            updateSet.cards.push(res.card)
+            updateSet.cards.unshift(res.card)
             this.setState({set: updateSet})
             document.querySelector('.new-ques').focus()
         })
@@ -51,7 +51,15 @@ class SetShow extends React.Component {
     flashcardEdit = (card) => {
         SetModel.editFlashcard(this.state.set._id, card).then(res => {
             const updateSet = this.state.set
-            updateSet.cards.splice(res.cardIndex, 1, res.card)
+            //get index of card to be edited
+            let index
+            for (let i = 0; i < updateSet.cards.length; i++) {
+                if (updateSet.cards[i]._id === card._id) {
+                    index = i
+                    break
+                }
+            }
+            updateSet.cards.splice(index, 1, res.card)
             this.setState(updateSet)
         })
     }
