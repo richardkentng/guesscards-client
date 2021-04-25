@@ -33,11 +33,10 @@
 ### package.json
 ![dependencies](/src/rm_images/dependencies.png)
 
-### User Stories:
+## User Stories:
 ##### AUTH
 - AAU, I want to sign up for an account with a username and password.
 - AAU, I want to log in to my account to see study sets made by me.
--
 ##### CRUD
 - AAU, I want to create a set that can contain flashcards, where each set has a name.
 - AAU, I want to create a flashcard for a particular set, where each card has a question and an - answer.
@@ -71,8 +70,7 @@
 - `npm install`
 - `npm run dev`
 
-### Errors
-##### React Hook useEffect has a missing dependency.
+## Errors: React Hook useEffect has a missing dependency.
 ![useEffect_error](/src/rm_images/useeffect_error.png)
 
 More often than not, when I try to use useEffect, I get this error.
@@ -100,43 +98,43 @@ key={card._id}
 No more headache! :D
 
 
-### Neat feature
-##### Delete Confirmation
+## Neat feature: Delete Confirmation
 ![delete](/src/rm_images/delete.png)
 
 If you want to delete a set of cards, you need only click the 
-edit icon to see the delete button above.  If your set has no
-cards, then the delete button will work right away.  But if it 
-has at least one card, then it will ask for confirmation as shown
-below.  Isn't that cute!!
+edit icon to see the delete button (shown above).  If your set has no
+cards, then the delete button will work right away (after all, what's
+the point of requesting delete confirmation for an *empty* set?).  
+However, if the set has at least one card, then it will ask for confirmation 
+as shown below.  Isn't that cute?!!
 
 ![delete_confirm](/src/rm_images/delete_confirm.png)
 
 
-### Final Thoughts
+## Final Thoughts
 
-#### SASS
+### SASS
 SASS makes CSS so much more intuitive.  
 Nested rules are a great way to visualize exactly which elements are being styled.
 This was especially helpful because I wrote my own CSS for this projet instead of 
 using a CSS library. I like how it turned out!
 
-#### React
+### React
 It's great how React how updates specific components without reloading the whole page!
 Though I'd better figure out why useEffect is giving me that dependency error.
 
-#### The Backend
+### The Backend
 It was pretty cool creating my own backend for this project.
 The data that my backend sent back looked just like the json data
 that I saw from APIs that we've worked with in the past!
 
-#### Guesscards
+### Guesscards
 The functionality of this project is rather basic.  If you read my user stories 
 and checked out my deployed app, you'd notice that there were SO MANY features that
 I did not get to implement.  I hope to keep updating this project so that it becomes
 something that myself and others actually want to use!
 
-#### A New Beginning?
+### A New Beginning?
 This was my final project for my online bootcamp and general assembly.
 I must keep up the grind and keep learning! :P
 
@@ -144,7 +142,7 @@ I must keep up the grind and keep learning! :P
   - richardkentng@gmail.com
   - [My Linkedin](https://www.linkedin.com/in/richard-kent-ng/)
 
-### Some Wireframes
+## Some Wireframes
 ![wf1](/src/rm_images/wf1.png)
 ![wf2](/src/rm_images/wf2.png)
 ![wf3](/src/rm_images/wf3.png)
