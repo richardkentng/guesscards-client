@@ -111,7 +111,7 @@ class SetShow extends React.Component {
             uiFlashcards = this.state.set.cards.map((card, idx) => {
                 return (
                 <FlashCard 
-                key={idx} 
+                key={card._id} 
                 {...card}
                 flashcardDelete={this.flashcardDelete}    
                 flashcardEdit={this.flashcardEdit}    
