@@ -57,10 +57,10 @@
 - AAU, I want to sort the cards by marked cards first.
 
 
-### ERD:
+## ERD:
 ![erd](/src/rm_images/erd.png)
 
-### Installation Instructions
+## Installation Instructions
 - Clone down this repo
 - `npm install`
 - `npm start`
@@ -79,7 +79,7 @@ was a problem. My quick research did not yield easy solutions. As
 a result, I had to refactor some functional components to use class
 components, which I'm more comfortable with.
 
-### Triumph
+## Triumph
 ##### Resolved bug where edit form would get prepopulated with another flashcard's data
 This issue would occur after I created or deleted a flashcard.
 Somehow, React was getting confused about which edit-form component 
