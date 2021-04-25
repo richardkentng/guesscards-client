@@ -79,8 +79,7 @@ was a problem. My quick research did not yield easy solutions. As
 a result, I had to refactor some functional components to use class
 components, which I'm more comfortable with.
 
-## Triumph
-##### Resolved bug where edit form would get prepopulated with another flashcard's data
+## Triumph: Resolved bug where edit form would get prepopulated with another flashcard's data
 This issue would occur after I created or deleted a flashcard.
 Somehow, React was getting confused about which edit-form component 
 belonged to which flashcard! I took a look at the map method for my
