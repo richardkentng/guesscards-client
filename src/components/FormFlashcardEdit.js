@@ -18,27 +18,37 @@ function FormFlashcardEdit(props) {
     }
 
     return (
-        <form onSubmit={onSubmit} className="FlashCard" style={props.styleFlashCardeForm}>
-            <textarea 
-            type="text"
-            name="ques"
-            value={ques}
-            onChange={(e) => setQues(e.target.value)}
-            placeholder="question"
-            className="input-edit-fcard"
-            autoFocus={true}
-            />
+        <form onSubmit={onSubmit} className="form-flashcard-edit FlashCard" style={props.styleFlashCardeForm}>
+            <div className="ques-cancel">
+                <textarea 
+                type="text"
+                name="ques"
+                value={ques}
+                onChange={(e) => setQues(e.target.value)}
+                placeholder="question"
+                autoFocus={true}
+                />
 
-            <textarea 
-            type="text"
-            name="ans"
-            value={ans}
-            onChange={(e) => setAns(e.target.value)}
-            placeholder="answer"
-            className="input-edit-fcard"
-            />
+                <button 
+                type="button" 
+                tabIndex="-1"
+                onClick={props.toggleDisplayCardvsEditForm}
+                >
+                    <i className="material-icons">cancel</i>
+                </button>
 
-            <button type="submit" className="btn-save-edit-fcard">Save</button>
+            </div>
+
+            <div className="ans-save">
+                <textarea 
+                type="text"
+                name="ans"
+                value={ans}
+                onChange={(e) => setAns(e.target.value)}
+                placeholder="answer"
+                />
+                <button type="submit">Save</button>
+            </div>
         </form>
     )
 }

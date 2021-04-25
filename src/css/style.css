@@ -17,7 +17,7 @@ h1 {
   font-family: "Karma", sans-serif;
 }
 
-p, button, input {
+p, button, input, textarea {
   font-size: 15px;
 }
 
@@ -170,16 +170,17 @@ nav ul li *:hover {
   padding: 0;
 }
 
-.btn-save-edit-fcard {
-  display: block;
-  margin: 0 0 0 auto;
-}
-
-.input-edit-fcard {
+.form-flashcard-edit .ques-cancel, .form-flashcard-edit .ans-save {
+  display: flex;
   width: 100%;
-  height: 3rem;
-  font-size: 16px;
   padding: 5px;
+}
+.form-flashcard-edit .ques-cancel textarea, .form-flashcard-edit .ans-save textarea {
+  width: 90%;
+  padding: 5px;
+}
+.form-flashcard-edit .ques-cancel button, .form-flashcard-edit .ans-save button {
+  width: 10%;
 }
 
 /************   'SetShow page'  (/sets/:id)    ********/
@@ -463,6 +464,10 @@ nav ul li *:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.df {
+  display: flex;
 }
 
 .dfic {
