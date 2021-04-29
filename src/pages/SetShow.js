@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
+import Options from '../components/Options'
 import SetModel from '../models/set'
-import react from 'react'
 
 Modal.setAppElement('#root')
 
@@ -105,6 +105,14 @@ class SetShow extends React.Component {
         })
     }
 
+    randomize = () => {
+        const updateSet = this.state.set
+        updateSet.cards.sort((a,b) => Math.random() - 0.5)
+        this.setState({
+            set: updateSet
+        })
+    }
+
     render() {
         let uiFlashcards
         if (typeof this.state.set === 'object') {
@@ -157,8 +165,15 @@ class SetShow extends React.Component {
                 <div className="SetShow-grid">
                     {/* Form - Create flashcard! */}
                     {this.state.set && 
-                    <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>}
-    
+                    <>
+                        <FormFlashcardCreate flashcardCreate={this.flashcardCreate}/>
+                        <Options 
+                        randomize={this.randomize}
+                        numCards={this.state.set.cards.length}
+                        />
+                    </>
+                    }
+                    
                     {/* show cards! */}
                     {uiFlashcards}
                 </div>
