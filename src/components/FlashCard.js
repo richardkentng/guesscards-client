@@ -33,22 +33,29 @@ function FlashCard(props) {
         return updateStyleObj
     }
 
+    //************** return  *************** 
     return (
         <>
-        <div className="FlashCard fcard-padding-right" style={styleFlashCard}>
-            <p onClick={toggleDisplayAns} className="ques">{props.ques}</p>
-            <p style={styleAns}>{props.ans}</p>
-
-            <button onClick={toggleDisplayCardvsEditForm} className="btn-edit-fcard hover-to-see">
-                <i className="material-icons">edit</i>
-            </button>
-            <button onClick={flashcardDelete} className="btn-del-fcard hover-to-see">
-                <i className="material-icons">delete</i>
-            </button>
+        <div className="FlashCard" style={styleFlashCard}>
+            <div className="aFlashCard">
+                <div className="ques-ans" onClick={toggleDisplayAns}>
+                    <p>{props.ques}</p>
+                    <p style={styleAns}>{props.ans}</p>
+                </div>
+    
+                <div className="btn-edit-btn-del">
+                    <button onClick={toggleDisplayCardvsEditForm} className="btn-edit-fcard hover-to-see">
+                        <i className="material-icons">edit</i>
+                    </button>
+                    <button onClick={flashcardDelete} className="btn-del-fcard hover-to-see">
+                        <i className="material-icons">delete</i>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <FormFlashcardEdit 
-        {...props} 
+        {...props}
         flashcardEdit={props.flashcardEdit}
         styleFlashCardeForm={styleFlashCardeForm}
         toggleDisplayCardvsEditForm={toggleDisplayCardvsEditForm}

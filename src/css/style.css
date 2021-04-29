@@ -144,12 +144,15 @@ nav ul li *:hover {
   position: relative;
 }
 
-.ques:hover {
-  color: gray;
+.aFlashCard {
+  display: flex;
 }
-
-.fcard-padding-right {
-  padding-right: 80px;
+.aFlashCard .ques-ans {
+  width: 100%;
+}
+.aFlashCard .btn-edit-btn-del {
+  display: flex;
+  width: 80px;
 }
 
 .hover-to-see {
@@ -160,18 +163,11 @@ nav ul li *:hover {
   opacity: 1;
 }
 
-.btn-edit-fcard {
-  position: absolute;
-  top: 4px;
-  right: 45px;
+.btn-edit-fcard, .btn-del-fcard {
   padding: 0;
-}
-
-.btn-del-fcard {
-  position: absolute;
-  top: 4px;
-  right: 10px;
-  padding: 0;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
 
 .form-flashcard-edit .ques-cancel, .form-flashcard-edit .ans-save {

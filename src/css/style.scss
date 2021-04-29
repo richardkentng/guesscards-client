@@ -132,27 +132,28 @@ nav {
     box-shadow: $box-shadow1;
     position: relative;
 }
-.ques:hover {
-    color: gray;
+.aFlashCard {
+    display: flex;
+    .ques-ans {
+        width: 100%;
+    }
+    .btn-edit-btn-del {
+        display: flex;
+        width: 80px;
+    }
 }
-.fcard-padding-right {
-    padding-right: 80px;
-}
+
 
 .hover-to-see {opacity: 0.5;}
 .hover-to-see:hover {opacity: 1;}
-.btn-edit-fcard {
-    position: absolute;
-    top: 4px;
-    right: 45px;
+
+.btn-edit-fcard,.btn-del-fcard {
     padding: 0;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
 }
-.btn-del-fcard {
-    position: absolute;
-    top: 4px;
-    right: 10px;
-    padding: 0;
-}
+
 
 .form-flashcard-edit {
     .ques-cancel, .ans-save {
