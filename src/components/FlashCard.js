@@ -35,8 +35,8 @@ function FlashCard(props) {
 
     return (
         <>
-        <div className="FlashCard fcard-padding-right" style={styleFlashCard} onClick={toggleDisplayAns}>
-            <p>{props.ques}</p>
+        <div className="FlashCard fcard-padding-right" style={styleFlashCard}>
+            <p onClick={toggleDisplayAns} className="ques">{props.ques}</p>
             <p style={styleAns}>{props.ans}</p>
 
             <button onClick={toggleDisplayCardvsEditForm} className="btn-edit-fcard hover-to-see">
