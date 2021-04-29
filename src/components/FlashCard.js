@@ -12,7 +12,7 @@ function FlashCard(props) {
     }
 
     /********************************************* 
-                TOGGLE DISPLAY FUNCTIONS 
+                FUNCTIONS  to TOGGLE DISPLAY
     *********************************************/
     
     const toggleDisplayCardvsEditForm = () => {
@@ -24,8 +24,14 @@ function FlashCard(props) {
 
     const toggleDisplayAns = () => {
         setStyleAns(toggleBlockNone(styleAns))
+        setStyleFlashCard(toggleYellow(styleFlashCard))
     }
     
+    /********************************************* 
+                FUNCTIONS to EDIT STYLE OBJECT
+    *********************************************/
+    
+
     const toggleBlockNone = (styleObj) => {
         const updateStyleObj = {...styleObj}
         updateStyleObj.display = styleObj.display === 'block' ?
@@ -33,7 +39,17 @@ function FlashCard(props) {
         return updateStyleObj
     }
 
-    //************** return  *************** 
+    const yellowish = '#ffec84'
+    const toggleYellow = (styleObj) => {
+        const updatedStyle = {...styleObj}
+        if (updatedStyle.backgroundColor !== yellowish) updatedStyle.backgroundColor = yellowish
+        else updatedStyle.backgroundColor = 'white'
+        return updatedStyle
+    }
+
+    /********************************************* 
+                        RETURN
+    *********************************************/
     return (
         <>
         <div className="FlashCard" style={styleFlashCard}>
