@@ -861,6 +861,13 @@ button {
   .SetCont-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .form-flashcard-edit .ques-cancel textarea, .form-flashcard-edit .ans-save textarea {
+    width: 80%;
+  }
+  .form-flashcard-edit .ques-cancel button, .form-flashcard-edit .ans-save button {
+    width: 20%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

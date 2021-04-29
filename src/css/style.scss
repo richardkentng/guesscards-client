@@ -517,4 +517,16 @@ button {padding: 5px;}
     .SetCont-grid {
         grid-template-columns: repeat(1, 1fr);
     }
+    
+    .form-flashcard-edit {
+        .ques-cancel, .ans-save {
+            textarea {
+                width: 80%;
+            }
+            button {
+                width: 20%;
+            }
+        }
+    }
+    
 }
