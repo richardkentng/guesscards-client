@@ -183,6 +183,19 @@ nav ul li *:hover {
   width: 10%;
 }
 
+/************   Options component     ********/
+.Options {
+  background-color: silver;
+  background: linear-gradient(0.25turn, transparent, #bbbbbb, transparent);
+  box-shadow: 0 0 0;
+  text-align: center;
+  padding: 5px;
+}
+.Options .btn-rand {
+  padding: 2px;
+  color: #666;
+}
+
 /************   'SetShow page'  (/sets/:id)    ********/
 .header-set-show {
   display: flex;
@@ -398,6 +411,10 @@ nav ul li *:hover {
 
 .bgsg {
   background-color: slategray;
+}
+
+.bgs {
+  background-color: silver;
 }
 
 .bgdsg {

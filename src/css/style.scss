@@ -120,7 +120,6 @@ nav {
 }
 @import 'btn-signuplogin';
 
-
 /************   FlashCard component     ********/
 
 .FlashCard {
@@ -170,6 +169,18 @@ nav {
     }
 }
 
+/************   Options component     ********/
+.Options {
+    background-color: silver;
+    background: linear-gradient(0.25turn, transparent, rgb(187, 187, 187),transparent);
+    box-shadow: 0 0 0;
+    text-align: center;
+    padding: 5px;
+    .btn-rand {
+        padding: 2px;
+        color: #666;
+    }
+}
 
 /************   'SetShow page'  (/sets/:id)    ********/
 
@@ -350,6 +361,7 @@ nav {
 .bggr {background-color: goldenrod;}
 .bgrp {background-color: rebeccapurple;}
 .bgsg {background-color: slategray;}
+.bgs {background-color: silver;}
 .bgdsg {background-color: darkseagreen;}
 .bgmam {background-color: mediumaquamarine;}
 
