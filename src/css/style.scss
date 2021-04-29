@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Karma:wght@400;700&display=swap');
 
+$green: rgb(110, 213, 125);
 $box-shadow1: 2px 2px 2px rgba(0,0,0,0.5);
 $bg: rgb(55, 55, 55);
 $b1: 1px solid black;
@@ -79,7 +80,7 @@ nav {
     }
 }
 .nav-bb-out {border-bottom: 5px solid rgb(233, 138, 138);}
-.nav-bb-in {border-bottom: 5px solid rgb(110, 213, 125);}
+.nav-bb-in {border-bottom: 5px solid $green;}
 
 
 /************   sign up / log in    ********/
@@ -120,7 +121,7 @@ nav {
 @import 'btn-signuplogin';
 
 
-/************   'FlashCard component'     ********/
+/************   FlashCard component     ********/
 
 .FlashCard {
     height: 75;
@@ -130,6 +131,9 @@ nav {
     margin: 10px;
     box-shadow: $box-shadow1;
     position: relative;
+}
+.ques:hover {
+    color: gray;
 }
 .fcard-padding-right {
     padding-right: 80px;
