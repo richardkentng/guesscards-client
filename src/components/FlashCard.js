@@ -8,7 +8,7 @@ function FlashCard(props) {
     const [styleAns, setStyleAns] = useState({display: 'none'})
 
     const flashcardDelete = () => {
-        props.flashcardDelete(props._id)
+        props.handleFlashcardDelete(props._id)
     }
 
     /********************************************* 
