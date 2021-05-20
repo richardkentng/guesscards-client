@@ -52,7 +52,7 @@ function FlashCard(props) {
     *********************************************/
     return (
         <>
-        <div className="FlashCard" style={styleFlashCard}>
+        <div className="FlashCard" style={styleFlashCard} id={props._id}>
             <div className="aFlashCard">
                 <div className="ques-ans" onClick={toggleDisplayAns}>
                     <p>{props.ques}</p>
