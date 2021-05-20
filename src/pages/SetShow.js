@@ -79,10 +79,8 @@ class SetShow extends React.Component {
         fCardEl.style.backgroundColor = red
         fCardEl.style.opacity = "0"
     
-        //convert deleteSpeed to milliseconds:
-        const deleteSpeedMs = parseInt(deleteSpeed.match(/\d\.?\d{0,2}/)[0] * 1000)
-        //delete flashCard:
-        setTimeout(() => { this.flashcardDelete(cardId) }, deleteSpeedMs)
+        //delete flashcard:
+        this.flashcardDelete(cardId)
     }
     
     flashcardDelete = (cardId) => {
