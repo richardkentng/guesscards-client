@@ -67,13 +67,13 @@ class SetShow extends React.Component {
     handleFlashcardDelete = (cardId) => {
         //animate flashcard fade:
         const fCardEl = document.getElementById(cardId)
-        const deleteSpeed = "0.08s"
+        const fadeSpeed = "0.08s"
         const red = "#B13E3E"
     
         fCardEl.style.transition = `
-        padding ${deleteSpeed}, 
-        background-color ${deleteSpeed}, 
-        opacity ${deleteSpeed} ease-in
+        padding ${fadeSpeed}, 
+        background-color ${fadeSpeed}, 
+        opacity ${fadeSpeed} ease-in
         `
         fCardEl.style.padding = "0"
         fCardEl.style.backgroundColor = red
