@@ -65,13 +65,19 @@ class SetShow extends React.Component {
     }
     
     flashcardDelete = (cardId) => {
-        SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
-            const updateSet = this.state.set
-            updateSet.cards = updateSet.cards.filter(c => {
-                return c._id !== res.card._id
+        //turn flashcard red
+        const fCardEl = document.getElementById(cardId)
+        fCardEl.style.backgroundColor = "red"
+
+        setTimeout(() => {
+            SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
+                const updateSet = this.state.set
+                updateSet.cards = updateSet.cards.filter(c => {
+                    return c._id !== res.card._id
+                })
+                this.setState({set: updateSet})
             })
-            this.setState({set: updateSet})
-        })
+        }, 100)
     }
 
     onSubmitEditSetName = (e) => {
