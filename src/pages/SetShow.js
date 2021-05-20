@@ -64,20 +64,35 @@ class SetShow extends React.Component {
         })
     }
     
-    flashcardDelete = (cardId) => {
-        //turn flashcard red
+    handleFlashcardDelete = (cardId) => {
+        //animate flashcard fade:
         const fCardEl = document.getElementById(cardId)
-        fCardEl.style.backgroundColor = "red"
-
-        setTimeout(() => {
-            SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
-                const updateSet = this.state.set
-                updateSet.cards = updateSet.cards.filter(c => {
-                    return c._id !== res.card._id
-                })
-                this.setState({set: updateSet})
+        const deleteSpeed = "0.08s"
+        const red = "#B13E3E"
+    
+        fCardEl.style.transition = `
+        padding ${deleteSpeed}, 
+        background-color ${deleteSpeed}, 
+        opacity ${deleteSpeed} ease-in
+        `
+        fCardEl.style.padding = "0"
+        fCardEl.style.backgroundColor = red
+        fCardEl.style.opacity = "0"
+    
+        //convert deleteSpeed to milliseconds:
+        const deleteSpeedMs = parseInt(deleteSpeed.match(/\d\.?\d{0,2}/)[0] * 1000)
+        //delete flashCard:
+        setTimeout(() => { this.flashcardDelete(cardId) }, deleteSpeedMs)
+    }
+    
+    flashcardDelete = (cardId) => {
+        SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
+            const updateSet = this.state.set
+            updateSet.cards = updateSet.cards.filter(c => {
+                return c._id !== res.card._id
             })
-        }, 100)
+            this.setState({set: updateSet})
+        })
     }
 
     onSubmitEditSetName = (e) => {
@@ -127,7 +142,7 @@ class SetShow extends React.Component {
                 <FlashCard 
                 key={card._id} 
                 {...card}
-                flashcardDelete={this.flashcardDelete}    
+                handleFlashcardDelete={this.handleFlashcardDelete}    
                 flashcardEdit={this.flashcardEdit}    
                 />
                 )
