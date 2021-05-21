@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import SetModel from '../models/set'
 import FormSetCreate from '../components/FormSetCreate'
 import SetCard from '../components/SetCard'
+import LoadingWheel from '../components/LoadingWheel'
 
 function SetContainer(props) {
 
@@ -29,10 +30,19 @@ function SetContainer(props) {
     }
 
     return (
-        <div className="SetCont-grid">
-            <FormSetCreate setCreate={setCreate}/>
-            {!sets ? 'loading...' : (sets.length ? uiSets : '')}
-        </div>
+            <>
+            {
+                sets === false ? <LoadingWheel/> :
+                (
+                    <>
+                    <div className="SetCont-grid">
+                        <FormSetCreate setCreate={setCreate}/>
+                        {sets.length >= 1 && uiSets}
+                    </div>
+                    </>
+                )
+            }
+            </>
     )
 }
 

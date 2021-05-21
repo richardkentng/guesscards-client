@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import Options from '../components/Options'
+import LoadingWheel from '../components/LoadingWheel'
 import SetModel from '../models/set'
 
 Modal.setAppElement('#root')
@@ -150,7 +151,7 @@ class SetShow extends React.Component {
 
         return (
             <div>
-                {!this.state.set ? 'loading...' 
+                {this.state.set === false ? <LoadingWheel/>
                 : (
                 <>
                 <br/>
