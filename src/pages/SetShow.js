@@ -156,24 +156,31 @@ class SetShow extends React.Component {
                     <>
                     <br/>
                     <div className="header-set-show">
-                        {/* back arrow */}
-                            <button className="btn-back-to-sets"><Link to="/sets">
-                            <i className="material-icons">arrow_back</i>
-                            </Link></button>
+                        {/* back arrow - see all sets */}
+                        <button 
+                            className="btn-back-to-sets">
+                            <Link to="/sets">
+                                <i className="material-icons">arrow_back</i>
+                            </Link>
+                        </button>
 
-                        {/* set title and (#) */}
-                        <div className="h1-num">
-                            <h1 className="dib"> {this.state.set.name}</h1>
-                            <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray-a'}> ({this.state.set.cards.length})</span>
+                        {/* set's title and (#) */}
+                        <div className="cont-setName-numCards">
+                            <h1 className="dib setTitle"> 
+                                {this.state.set.name}
+                                <span className={!this.state.set.cards.length ? "big thin red" : 'big thin gray-a'}> ({this.state.set.cards.length})</span>
+                            </h1>
                         </div>
 
-                        {/* Button - Modal Trigger to Edit Set! */}
-                        <button 
-                            onClick={() => this.setState({modalIsOpenEditSet: true})} 
-                            className="btn-edit-fcard hover-to-see"
-                            >
-                            <i className="material-icons">edit</i>
-                        </button>
+                        {/* button - Modal Trigger to Edit Set */}
+                        <div>
+                            <button 
+                                onClick={() => this.setState({modalIsOpenEditSet: true})}
+                                className="btn-edit-set hover-to-see" 
+                                >
+                                <i className="material-icons">edit</i>
+                            </button>
+                        </div>
                     </div>
 
                     <div className="SetShow-grid">

@@ -200,18 +200,27 @@ nav ul li *:hover {
 .header-set-show {
   display: flex;
   background-color: #5e5e5e;
-  position: relative;
-}
-.header-set-show .h1-num {
-  line-height: 30px;
-  margin-top: 10px;
-}
-.header-set-show .h1-num h1 {
-  color: white;
+  justify-content: center;
+  max-width: 700px;
+  margin: auto;
 }
 .header-set-show .btn-back-to-sets {
-  align-self: flex-start;
-  margin-right: 15px;
+  margin: 0;
+  width: 50px;
+}
+.header-set-show .cont-setName-numCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px 10px 10px;
+  width: 100%;
+}
+.header-set-show .cont-setName-numCards .setTitle {
+  color: white;
+}
+.header-set-show .btn-edit-set {
+  height: 100%;
+  width: 40px;
 }
 
 .SetShow-grid {
