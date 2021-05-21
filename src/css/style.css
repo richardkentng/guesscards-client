@@ -255,6 +255,13 @@ nav ul li *:hover {
   text-align: center;
   line-height: 20px;
   margin-top: 2rem;
+  margin-bottom: 2em;
+}
+
+.iframe {
+  border: 2px solid white;
+  display: block;
+  margin: auto;
 }
 
 .Landing-grid {
@@ -872,6 +879,10 @@ button {
   }
   .about-cont .paras p:first-child, .about-cont .paras p:last-child {
     background: transparent;
+  }
+
+  .iframe {
+    width: 100%;
   }
 }
 @media (max-width: 414px) {

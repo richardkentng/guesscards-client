@@ -23,7 +23,6 @@ $b2: 2px solid black;
     box-sizing: border-box;
 }
 
-
 h1 {
     font-family: 'Karma', sans-serif;
 }
@@ -236,12 +235,21 @@ nav {
 
 
 /************   Landing Page  (/sets/:id)    ********/
+
 .Landing-header {
     color: white;
     text-align: center;
     line-height: 20px;;
     margin-top: 2rem;
+    margin-bottom: 2em;
 }
+
+.iframe {
+    border: 2px solid white;
+    display: block;
+    margin: auto;
+}
+
 .Landing-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -528,6 +536,9 @@ button {padding: 5px;}
                 background: transparent;
             }
         }
+    }
+    .iframe {
+        width: 100%;
     }
 }
 @media (max-width: 414px) {
