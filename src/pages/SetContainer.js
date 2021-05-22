@@ -27,8 +27,9 @@ function SetContainer(props) {
 
             //handle errors like expired token
             if (!('sets' in data)) {
-                if ('err' in data && data.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again. (SetContainer)')
-                else toast.error('An error occurred... The server did not respond with any sets. Try logging in again. :P (SetContainer)')
+                if ('msg' in data && data.msg === "token does not exist in middleware") toast.warn('You must be logged in to access that route!')
+                else if ('err' in data && data.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again.')
+                else toast.error('An error occurred... The server did not respond with any sets. Try logging in again.')
 
                 setUser(false)
                 localStorage.setItem('uid', '')

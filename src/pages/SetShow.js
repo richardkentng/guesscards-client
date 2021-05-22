@@ -32,16 +32,18 @@ class SetShow extends React.Component {
 
         SetModel.show(this.props.match.params.id).then(res => {
 
-                //handle errors like expired token:
+                //handle errors from server:
                 if(!('set' in res)) {
 
+                    //handle invalid set id response:
                     if ('msg' in res && res.msg === 'Failed to find set by id.') {
                         toast.warn('That set does not exist!')
                         return this.props.history.push('/sets')
                     }
-
-                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired. Please log in again. (SetShow)')
-                    else toast.error('An error occured... The server did not respond with any flashcards. Try logging in again. (SetShow')
+                    //handle token expired error, or other errors:
+                    if ('msg' in res && res.msg === "token does not exist in middleware") toast.warn('You must be logged in to access that route!')
+                    else if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired. Please log in again.')
+                    else toast.error('An error occured... The server did not respond with any flashcards. Try logging in again.')
 
                     localStorage.setItem('uid', '')
 
