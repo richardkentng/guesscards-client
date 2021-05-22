@@ -58,7 +58,7 @@ function Navbar(props) {
                 {user ? (
                     <>
                     <li className="logout"><button onClick={logout} className="link-button"> Log Out</button></li>
-                    {window.location.href.slice(-5) !== '/sets' && <li className="sets"><Link to="/sets">SETS</Link></li>}
+                    {!window.location.href.includes('/sets') && <li className="sets"><Link to="/sets">SETS</Link></li>}
                     <li className="gray username">{user.username}</li>
                     </>
                 ) : (
