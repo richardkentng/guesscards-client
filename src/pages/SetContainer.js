@@ -4,10 +4,14 @@ import SetModel from '../models/set'
 import FormSetCreate from '../components/FormSetCreate'
 import SetCard from '../components/SetCard'
 import LoadingWheel from '../components/LoadingWheel'
+import {userState} from '../recoil/atom'
+import {useSetRecoilState} from 'recoil'
+import { toast } from 'react-toastify'
 
 function SetContainer(props) {
 
     const [sets, setSets] = useState(false)
+    const setUser = useSetRecoilState(userState)
 
     const setCreate = (name) => {
         SetModel.create({name}).then(res => {
@@ -17,6 +21,18 @@ function SetContainer(props) {
 
     useEffect(() => {
         SetModel.all().then(data => {
+
+            //handle errors like expired token
+            if (!('sets' in data)) {
+                if ('err' in data && data.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again. (SetContainer)')
+                else toast.error('An error occurred... The server did not respond with any sets. Try logging in again. :P (SetContainer)')
+
+                setUser(false)
+                localStorage.setItem('uid', '')
+
+                return props.history.push('/login')
+            }
+
             setSets(data.sets)
         })
     }, [])

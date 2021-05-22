@@ -5,22 +5,39 @@ import AuthModel from '../models/auth'
 import { useRecoilState } from 'recoil'
 import {userState} from '../recoil/atom'
 import icon from '../images/icon_t.png'
+import { toast } from 'react-toastify'
 
 function Navbar(props) {
     const [user, setUser] = useRecoilState(userState)
 
 
     const logout = () => {
-        localStorage.clear()
-        setUser(false)
+        clearStoredTokenAndGlobalUser()
         props.history.push('/')
+    }
+
+    const clearStoredTokenAndGlobalUser = () => {
+        localStorage.setItem('uid','')
+        setUser(false)
     }
 
     useEffect(() => {
         if (!localStorage.uid) logout()
+
         if (localStorage.getItem("uid")) {
             AuthModel.verify().then((res) => {
-                setUser(res.userData);
+
+                //handle errors like expired token:
+                if (!('userData' in res)) {
+                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again. (Navbar)')
+                    else { toast.error('An error occured... Try logging in again. (Navbar)') }
+
+                    clearStoredTokenAndGlobalUser()
+                    return props.history.push('/login')
+                }
+
+                setUser(res.userData)
+
             });
         }
     }, [])
@@ -35,7 +52,7 @@ function Navbar(props) {
                 {user ? (
                     <>
                     <li className="logout"><button onClick={logout} className="link-button"> Log Out</button></li>
-                    <li className="sets"><Link to="/sets">SETS</Link></li>
+                    {window.location.href.slice(-5) !== '/sets' && <li className="sets"><Link to="/sets">SETS</Link></li>}
                     <li className="gray username">{user.username}</li>
                     </>
                 ) : (

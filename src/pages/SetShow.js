@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
-import { toast } from 'react-toastify'
 
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import Options from '../components/Options'
 import LoadingWheel from '../components/LoadingWheel'
 import SetModel from '../models/set'
+import {userState} from '../recoil/atom'
+import {useSetRecoilState} from 'recoil'
+import { toast } from 'react-toastify'
 
 Modal.setAppElement('#root')
 
@@ -26,9 +28,14 @@ class SetShow extends React.Component {
     componentDidMount() {
         SetModel.show(this.props.match.params.id).then(res => {
 
-                if(!Object.keys(res).includes('set')) {
-                    toast.warn(res.msg)  
-                    return this.props.history.push('/sets')
+                //handle errors like expired token:
+                if(!('set' in res)) {
+                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired. Please log in again. (SetShow)')
+                    else toast.error('An error occured... The server did not respond with any flashcards. Try logging in again. (SetShow')
+
+                    localStorage.setItem('uid', '')
+
+                    return this.props.history.push('/login')
                 } 
 
                 this.setState({
