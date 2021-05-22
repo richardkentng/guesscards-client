@@ -14,7 +14,6 @@ export default function Login(props) {
 
     const onLogin = (e) => {
         e.preventDefault()
-        if (!username || !password) return toast.warn('Please fill out both fields!')
         
         AuthModel.login({username, password}).then(res => {
             const statusFirstNum = res.status.toString().substring(0,1)
@@ -46,6 +45,7 @@ export default function Login(props) {
                         name="username" value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
                         autoFocus={true}
+                        required={true}
                         />
                     </div>
     
@@ -55,7 +55,8 @@ export default function Login(props) {
                         type="password" 
                         name="password" 
                         value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
+                        onChange={(e) => setPassword(e.target.value)}
+                        required={true}
                         />
                     </div>
     

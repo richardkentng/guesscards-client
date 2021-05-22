@@ -15,7 +15,6 @@ export default function Signup(props) {
 
     const onSignup = (e) => {
         e.preventDefault()
-        if (!username || !password) return toast.warn('Please fill out both fields!')
         if (password.length < 8) return toast.warn('Password must be at least 8 characters long.')
         if (password.length > 100) return toast.warn('Password may not exceed 100 characters!')
         if (username.length > 50) return toast.warn('Username may not exceed 50 characters!')
@@ -54,6 +53,7 @@ export default function Signup(props) {
                         name="username" value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
                         autoFocus={true}
+                        required={true}
                         />
                     </div>
                     <div>
@@ -62,7 +62,8 @@ export default function Signup(props) {
                         type="password" 
                         name="password" 
                         value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
+                        onChange={(e) => setPassword(e.target.value)}
+                        required={true}
                         />
                     </div>
 
