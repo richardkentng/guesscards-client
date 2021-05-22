@@ -12,9 +12,15 @@ import {useRecoilValue} from 'recoil'
 function Landing(props) {
     const user = useRecoilValue(userState)
 
-    //redirect elsewhere if:  1 - user is logged in   2 - did not click icon to reach landing page
+    /* redirect elsewhere if:  
+        1 - user is logged in   
+        2 - did not click icon to reach landing page 
+        3 - did not click logout to reach langing page
+    */
     const secondsSinceClickedGusscardsIcon = (Date.now() - localStorage.timeClickedGuesscardsIcon) / 1000
-    if (user && secondsSinceClickedGusscardsIcon > 1) {
+    const secondsSinceClickedLogOut = (Date.now() - localStorage.timeClickedLogOut) / 1000
+    
+    if (user && secondsSinceClickedGusscardsIcon > 0.1 && secondsSinceClickedLogOut > 0.1) {
         if (localStorage.page === "SetShow" && localStorage.setId !== '') {
             props.history.push(`/sets/${localStorage.setId}`)
         } else if (localStorage.page === "SetContainer") {
