@@ -13,6 +13,8 @@ function Navbar(props) {
 
     const logout = () => {
         clearStoredTokenAndGlobalUser()
+        //record time (for Landing page redirection purposes)
+        localStorage.setItem('timeClickedLogOut', Date.now())
         props.history.push('/')
     }
 
