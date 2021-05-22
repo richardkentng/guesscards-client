@@ -20,6 +20,9 @@ function SetContainer(props) {
     }
 
     useEffect(() => {
+        //update last visited page (for redirection purposes on landing page)
+        localStorage.setItem('page', 'SetContainer')
+
         SetModel.all().then(data => {
 
             //handle errors like expired token
