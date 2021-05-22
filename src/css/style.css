@@ -53,6 +53,9 @@ nav ul .icon {
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
   transform: translateY(-20%);
 }
+nav ul .icon:hover {
+  cursor: pointer;
+}
 nav ul li {
   display: inline;
   margin-left: 10px;
