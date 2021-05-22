@@ -6,7 +6,22 @@ import step3 from '../images/step3.png'
 import step4 from '../images/step4.png'
 import step5 from '../images/step5.png'
 import step6 from '../images/step6.png'
-export default function Landing() {
+import { userState } from '../recoil/atom'
+import {useRecoilValue} from 'recoil'
+
+function Landing(props) {
+    const user = useRecoilValue(userState)
+
+    //redirect elsewhere if:  1 - user is logged in   2 - did not click icon to reach landing page
+    const secondsSinceClickedGusscardsIcon = (Date.now() - localStorage.timeClickedGuesscardsIcon) / 1000
+    if (user && secondsSinceClickedGusscardsIcon > 1) {
+        if (localStorage.page === "SetShow" && localStorage.setId !== '') {
+            props.history.push(`/sets/${localStorage.setId}`)
+        } else if (localStorage.page === "SetContainer") {
+            props.history.push('/sets')
+        }
+    }
+
     return (
         <>
             <div className="Landing-header">
@@ -54,3 +69,5 @@ export default function Landing() {
         </>
     )
 }
+
+export default Landing
