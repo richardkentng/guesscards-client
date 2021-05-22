@@ -40,6 +40,17 @@ nav ul {
 nav ul .logout, nav ul .signup, nav ul .login {
   float: right;
 }
+nav ul .sets a {
+  color: white;
+  background-color: #52a1f0;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 6px 15px;
+}
+nav ul .sets a:hover {
+  color: white;
+  background-color: dodgerBlue;
+}
 nav ul .sets, nav ul .icon, nav ul .about {
   float: left;
 }

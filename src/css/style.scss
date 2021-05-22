@@ -48,6 +48,19 @@ nav {
         .logout, .signup, .login {
             float: right;
         }
+        .sets {
+            a {
+                color: white;
+                background-color: rgb(82, 161, 240);
+                text-decoration: none;
+                border-radius: 5px;
+                padding: 6px 15px;
+            }
+            a:hover {
+                color: white;
+                background-color: dodgerBlue;
+            }
+        }
         .sets, .icon, .about {
             float: left;
         }
