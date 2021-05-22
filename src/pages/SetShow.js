@@ -152,6 +152,10 @@ class SetShow extends React.Component {
         })
     }
 
+    onClickBackArrow = () => {
+        this.props.history.push('/sets')
+    }
+
     render() {
         let uiFlashcards
         if (typeof this.state.set === 'object') {
@@ -176,11 +180,8 @@ class SetShow extends React.Component {
                     <br/>
                     <div className="header-set-show">
                         {/* back arrow - see all sets */}
-                        <button 
-                            className="btn-back-to-sets">
-                            <Link to="/sets">
-                                <i className="material-icons">arrow_back</i>
-                            </Link>
+                        <button className="btn-back-to-sets" onClick={this.onClickBackArrow}>
+                            <i className="material-icons">arrow_back</i>
                         </button>
 
                         {/* set's title and (#) */}
