@@ -42,12 +42,16 @@ function Navbar(props) {
         }
     }, [])
 
+    const onClickIcon = () => {
+        props.history.push('/')
+        localStorage.setItem('timeClickedGuesscardsIcon', Date.now())
+    }
 
     return (
         <nav className={user ? 'nav-bb-in' : 'nav-bb-out'}>
             <ul>
                     <li className="icon">
-                        <Link to="/"><img src={icon} alt="guesscards"/></Link>
+                        <img src={icon} alt="guesscards" onClick={onClickIcon}/>
                     </li>
                 {user ? (
                     <>
