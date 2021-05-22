@@ -16,6 +16,7 @@ export default function Login(props) {
         e.preventDefault()
         
         AuthModel.login({username, password}).then(res => {
+            //display potential errors:
             const statusFirstNum = res.status.toString().substring(0,1)
             if (statusFirstNum === "4") toast.warn(res.msg)
             else if (statusFirstNum === "5") toast.error(res.msg)
