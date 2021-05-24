@@ -158,6 +158,11 @@ nav ul li *:hover {
   position: relative;
 }
 
+.aFlashCard .cont-mark, .cont-FlashCard {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 .aFlashCard .btn-edit-btn-del, .cont-FlashCard {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -186,7 +191,6 @@ nav ul li *:hover {
   display: flex;
   width: 80px;
   background-color: #d7d7d7;
-  border: 1px solid #454545;
 }
 .aFlashCard .btn-edit-btn-del button {
   transform: translate(-4px, 2px);
@@ -432,6 +436,12 @@ nav ul li *:hover {
 
 .bgr {
   background-color: #e6a9a9 !important;
+}
+
+.red-num-marked {
+  color: #e6a9a9 !important;
+  font-weight: 800;
+  font-size: 1rem;
 }
 
 .bgg {

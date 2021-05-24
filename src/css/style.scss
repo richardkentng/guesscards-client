@@ -147,6 +147,10 @@ nav {
     box-shadow: $box-shadow1;
     position: relative;
 }
+%bdrs-fcard-left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
 %bdrs-fcard-right {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -154,14 +158,16 @@ nav {
 .cont-FlashCard {
     margin-bottom: 15px;
     background-color: white;
+    @extend %bdrs-fcard-left;
     @extend %bdrs-fcard-right;
 }
+
 .aFlashCard {
     display: flex;
-
     .cont-mark {
         width: 30px;
         background-color: rgb(184, 184, 184);
+        @extend %bdrs-fcard-left;
     }
     .cont-mark:hover {
         padding: 10px;
@@ -177,7 +183,6 @@ nav {
             transform: translate(-4px, 2px)
         }
         background-color: rgb(215, 215, 215);
-        border: 1px solid rgb(69, 69, 69);
         @extend %bdrs-fcard-right;
     }
 }
@@ -405,7 +410,9 @@ nav {
 .green {color: green}
 .white {color: white;}
 
-.bgr {background-color: rgb(230, 169, 169) !important;}
+$redMarked: rgb(230, 169, 169) !important;
+.bgr {background-color: $redMarked;}
+.red-num-marked {color: $redMarked; font-weight: 800; font-size: 1rem;}
 .bgg {background-color: green;}
 .bgb {background-color: blue;}
 .bgdb {background-color: dodgerblue;}
