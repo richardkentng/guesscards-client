@@ -144,7 +144,7 @@ class SetShow extends React.Component {
         })
     }
 
-    randomize = () => {
+    sortByRandom = () => {
         const updateSet = this.state.set
         updateSet.cards.sort((a,b) => Math.random() - 0.5)
         this.setState({
@@ -221,7 +221,7 @@ class SetShow extends React.Component {
                         
                         {/* Show randomize button */}
                         <Options 
-                        randomize={this.randomize}
+                        sortByRandom={this.sortByRandom}
                         sortByCreatedAt={this.sortByCreatedAt}
                         numCards={this.state.set.cards.length}
                         />

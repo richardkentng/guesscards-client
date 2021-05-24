@@ -10,7 +10,7 @@ function Options(props) {
         style={{display: props.numCards >= 5 ? 'block' : 'none'}}
         >
             <button 
-                onClick={props.randomize}
+                onClick={props.sortByRandom}
                 className="gray-72" 
                 >
                 Random
