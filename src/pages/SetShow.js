@@ -145,11 +145,9 @@ class SetShow extends React.Component {
     }
 
     sortByRandom = () => {
-        const updateSet = this.state.set
-        updateSet.cards.sort((a,b) => Math.random() - 0.5)
-        this.setState({
-            set: updateSet
-        })
+        const set = {...this.state.set}
+        set.cards.sort((a,b) => Math.random() - 0.5)
+        this.setState({ set })
     }
     sortByCreatedAt = (order) => {
         const set = {...this.state.set}
