@@ -2,15 +2,30 @@ import React from 'react'
 
 function Options(props) {
 
+    function sortByNewFirst() { props.sortByCreatedAt('desc') }
+    function sortByOldFirst() { props.sortByCreatedAt('asc') }
+
     return (
         <div className="FlashCard Options "
         style={{display: props.numCards >= 5 ? 'block' : 'none'}}
         >
             <button 
-            className="btn-rand"
-            onClick={props.randomize} 
-            >
-            Randomize
+                onClick={props.randomize}
+                className="gray-72" 
+                >
+                Randomize
+            </button>
+            <button
+                onClick={sortByNewFirst}
+                className="gray-72" 
+                >
+                Newest First
+            </button>
+            <button
+                onClick={sortByOldFirst}
+                className="gray-72" 
+                >
+                Oldest First
             </button>
 
         </div>
