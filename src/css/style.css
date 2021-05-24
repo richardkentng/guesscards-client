@@ -158,15 +158,31 @@ nav ul li *:hover {
   position: relative;
 }
 
+.aFlashCard .btn-edit-btn-del, .cont-FlashCard {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.cont-FlashCard {
+  margin-bottom: 15px;
+  background-color: white;
+}
+
 .aFlashCard {
   display: flex;
 }
 .aFlashCard .ques-ans {
   width: 100%;
+  padding: 10px;
 }
 .aFlashCard .btn-edit-btn-del {
   display: flex;
   width: 80px;
+  background-color: #d7d7d7;
+  border: 1px solid #454545;
+}
+.aFlashCard .btn-edit-btn-del button {
+  transform: translate(-4px, 2px);
 }
 
 .hover-to-see {

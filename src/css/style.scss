@@ -147,14 +147,32 @@ nav {
     box-shadow: $box-shadow1;
     position: relative;
 }
+%bdrs-fcard-right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.cont-FlashCard {
+    margin-bottom: 15px;
+    background-color: white;
+    @extend %bdrs-fcard-right;
+}
 .aFlashCard {
     display: flex;
+    // border: 2px solid red;
     .ques-ans {
         width: 100%;
+        // background-color: goldenrod;
+        padding: 10px;
     }
     .btn-edit-btn-del {
         display: flex;
         width: 80px;
+        button {
+            transform: translate(-4px, 2px)
+        }
+        background-color: rgb(215, 215, 215);
+        border: 1px solid rgb(69, 69, 69);
+        @extend %bdrs-fcard-right;
     }
 }
 
