@@ -151,6 +151,16 @@ class SetShow extends React.Component {
             set: updateSet
         })
     }
+    sortByCreatedAt = (order) => {
+        const set = {...this.state.set}
+        set.cards.sort((b, a) => {
+            const aa = order === 'desc' ? 0 : -1
+            const bb = order === 'desc' ? -1 : 0
+            function getTime(str) { return new Date(str).getTime()}
+            return (getTime(a.createdAt) > getTime(b.createdAt)) ? aa : bb
+        })
+        this.setState({ set })
+    }
 
     onClickBackArrow = () => {
         this.props.history.push('/sets')
@@ -212,6 +222,7 @@ class SetShow extends React.Component {
                         {/* Show randomize button */}
                         <Options 
                         randomize={this.randomize}
+                        sortByCreatedAt={this.sortByCreatedAt}
                         numCards={this.state.set.cards.length}
                         />
                         
