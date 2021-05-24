@@ -56,7 +56,10 @@ function FlashCard(props) {
             <div className="aFlashCard">
                 <div 
                 className={`cont-mark ${props.marked && 'bgr'}`}
-                onClick={() => { props.flashcardEdit({...props, marked: props.marked ? false : true}) }}
+                onClick={() => { 
+                    props.flashcardEdit({...props, marked: props.marked ? false : true}) 
+                    document.querySelector('.btn-sort-mark').disabled = false
+                }}
                 >
 
                 </div>
