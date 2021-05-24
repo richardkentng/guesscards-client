@@ -31,7 +31,7 @@ function Navbar(props) {
 
                 //handle errors like expired token:
                 if (!('userData' in res)) {
-                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again. (Navbar)')
+                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again.')
                     else { toast.error('An error occured... Try logging in again. (Navbar)') }
 
                     clearStoredTokenAndGlobalUser()
