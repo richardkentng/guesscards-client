@@ -13,19 +13,19 @@ function Options(props) {
                 onClick={props.randomize}
                 className="gray-72" 
                 >
-                Randomize
+                Random
             </button>
             <button
                 onClick={sortByNewFirst}
                 className="gray-72" 
                 >
-                Newest First
+                Newest
             </button>
             <button
                 onClick={sortByOldFirst}
                 className="gray-72" 
                 >
-                Oldest First
+                Oldest
             </button>
 
         </div>
