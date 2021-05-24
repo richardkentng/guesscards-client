@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 
 import FlashCard from '../components/FlashCard'
@@ -7,8 +6,6 @@ import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import Options from '../components/Options'
 import LoadingWheel from '../components/LoadingWheel'
 import SetModel from '../models/set'
-import {userState} from '../recoil/atom'
-import {useSetRecoilState} from 'recoil'
 import { toast } from 'react-toastify'
 
 Modal.setAppElement('#root')
@@ -159,13 +156,27 @@ class SetShow extends React.Component {
         })
         this.setState({ set })
     }
+    sortByMarked = () => {
+        const set = {...this.state.set}
+        const markedCards = []
+        for (let i = 0; i < set.cards.length; i++) {
+            if (set.cards[i].marked === true) {
+                markedCards.push(set.cards.splice(i, 1)[0])
+                i--
+            }
+        }
+        set.cards = markedCards.concat(set.cards)
+        this.setState({ set })
+    }
 
     onClickBackArrow = () => {
         this.props.history.push('/sets')
     }
 
     render() {
+        
         let uiFlashcards
+        let numMarked
         if (typeof this.state.set === 'object') {
             uiFlashcards = this.state.set.cards.map((card, idx) => {
                 return (
@@ -173,13 +184,13 @@ class SetShow extends React.Component {
                 key={card._id} 
                 {...card}
                 handleFlashcardDelete={this.handleFlashcardDelete}    
-                flashcardEdit={this.flashcardEdit}    
+                flashcardEdit={this.flashcardEdit}
                 />
                 )
             })
+            numMarked = this.state.set.cards.filter(c => c.marked === true).length
         }
-
-
+        
         return (
             <div>
                 {this.state.set === false ? <LoadingWheel/>
@@ -221,7 +232,9 @@ class SetShow extends React.Component {
                         <Options 
                         sortByRandom={this.sortByRandom}
                         sortByCreatedAt={this.sortByCreatedAt}
+                        sortByMarked={this.sortByMarked}
                         numCards={this.state.set.cards.length}
+                        numMarked={numMarked}
                         />
                         
                         {/* show cards! */}
