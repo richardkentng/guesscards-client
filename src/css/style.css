@@ -171,6 +171,13 @@ nav ul li *:hover {
 .aFlashCard {
   display: flex;
 }
+.aFlashCard .cont-mark {
+  width: 30px;
+  background-color: #b8b8b8;
+}
+.aFlashCard .cont-mark:hover {
+  padding: 10px;
+}
 .aFlashCard .ques-ans {
   width: 100%;
   padding: 10px;
@@ -424,7 +431,7 @@ nav ul li *:hover {
 }
 
 .bgr {
-  background-color: red;
+  background-color: #e6a9a9 !important;
 }
 
 .bgg {

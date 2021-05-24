@@ -158,10 +158,16 @@ nav {
 }
 .aFlashCard {
     display: flex;
-    // border: 2px solid red;
+
+    .cont-mark {
+        width: 30px;
+        background-color: rgb(184, 184, 184);
+    }
+    .cont-mark:hover {
+        padding: 10px;
+    }
     .ques-ans {
         width: 100%;
-        // background-color: goldenrod;
         padding: 10px;
     }
     .btn-edit-btn-del {
@@ -399,7 +405,7 @@ nav {
 .green {color: green}
 .white {color: white;}
 
-.bgr {background-color: red;}
+.bgr {background-color: rgb(230, 169, 169) !important;}
 .bgg {background-color: green;}
 .bgb {background-color: blue;}
 .bgdb {background-color: dodgerblue;}
