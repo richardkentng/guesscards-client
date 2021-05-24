@@ -54,6 +54,13 @@ function FlashCard(props) {
         <>
         <div className="cont-FlashCard" style={styleFlashCard} id={props._id}>
             <div className="aFlashCard">
+                <div 
+                className={`cont-mark ${props.marked && 'bgr'}`}
+                onClick={() => { props.flashcardEdit({...props, marked: props.marked ? false : true}) }}
+                >
+
+                </div>
+
                 <div className="ques-ans" onClick={toggleDisplayAns}>
                     <p>{props.ques}</p>
                     <p style={styleAns}>{props.ans}</p>
@@ -67,6 +74,7 @@ function FlashCard(props) {
                         <i className="material-icons">delete</i>
                     </button>
                 </div>
+
             </div>
         </div>
 
