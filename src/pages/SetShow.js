@@ -62,6 +62,13 @@ class SetShow extends React.Component {
             updateSet.cards.unshift(res.card)
             this.setState({set: updateSet})
             document.querySelector('.new-ques').focus()
+
+            // sort flashcards based off last recorded sort choice (sort by newest is not included because it is default)
+            if ('sort' in localStorage) {
+                if (localStorage.sort === 'btn-sort-old') this.sortByCreatedAt('asc')
+                else if (localStorage.sort === 'btn-sort-mark') this.sortByMarked()
+            }
+
         })
     }
 
