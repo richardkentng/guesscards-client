@@ -61,14 +61,31 @@ class SetShow extends React.Component {
             const updateSet = this.state.set
             updateSet.cards.unshift(res.card)
             this.setState({set: updateSet})
+
+            //focus question field for creation form
             document.querySelector('.new-ques').focus()
 
             // sort flashcards based off last recorded sort choice (sort by newest is not included because it is default)
             if ('sort' in localStorage) {
-                if (localStorage.sort === 'btn-sort-old') this.sortByCreatedAt('asc')
+                if (localStorage.sort === 'btn-sort-old') { 
+                    this.sortByCreatedAt('asc')
+                }
                 else if (localStorage.sort === 'btn-sort-mark') this.sortByMarked()
             }
 
+            //make new flashcard temporarily green
+            const fCardEl = document.getElementById(res.card._id)
+            const green = "#8bdc62"
+            fCardEl.style.backgroundColor = green
+            setTimeout(() => {
+                fCardEl.style.transition = 'background-color 0.5s'
+                fCardEl.style.backgroundColor = 'white'
+            }, 100)
+            
+            //if new flashcard appears below viewable screen, show success message
+            if (fCardEl.getBoundingClientRect().y > window.innerHeight) {
+                toast.success('scroll down to see new flashcard!', { autoClose: 1500 })
+            }
         })
     }
 
