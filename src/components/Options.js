@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import SearchBar from './SearchBar'
 
 function Options(props) {
 
@@ -74,6 +75,7 @@ function Options(props) {
                 >
                 Marked <span className="red-num-marked">{props.numMarked > 0 ? props.numMarked : ''}</span>
             </button>
+            <SearchBar onSubmitFcardSearch={props.onSubmitFcardSearch}/>
 
         </div>
     )
