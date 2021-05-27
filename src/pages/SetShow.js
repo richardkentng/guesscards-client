@@ -58,19 +58,25 @@ class SetShow extends React.Component {
 
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
-            const updateSet = this.state.set
-            updateSet.cards.unshift(res.card)
-            this.setState({set: updateSet})
+            const set = {...this.state.set}
+            set.cards.unshift(res.card)
+            this.setState({ set })
 
             //focus question field for creation form
             document.querySelector('.new-ques').focus()
 
             // sort flashcards based off last recorded sort choice (sort by newest is not included because it is default)
             if ('sort' in localStorage) {
-                if (localStorage.sort === 'btn-sort-old') { 
-                    this.sortByCreatedAt('asc')
-                }
+                if (localStorage.sort === 'btn-sort-old') this.sortByCreatedAt('asc')
                 else if (localStorage.sort === 'btn-sort-mark') this.sortByMarked()
+                else if (localStorage.sort === 'btn-sort-rand') {
+                    //place new flashcard in random location
+                    const randIndex = Math.floor(Math.random() * this.state.set.cards.length)
+                    const set = {...this.state.set}
+                    const card = set.cards.shift()
+                    set.cards.splice(randIndex, 0, card)
+                    this.setState({ set })
+                }
             }
 
             //make new flashcard temporarily green
