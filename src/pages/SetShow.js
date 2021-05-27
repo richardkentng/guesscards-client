@@ -203,6 +203,27 @@ class SetShow extends React.Component {
         this.props.history.push('/sets')
     }
 
+
+    onSubmitFcardSearch = (query) => {
+        const set = {...this.state.set}
+
+        let numCardMatches = 0
+        //score flashcards based on whether they contain query, then sort by score
+        set.cards.forEach(card => {
+            card.score = 0
+            if (card.ques.toLowerCase().includes(query.toLowerCase())) {
+                card.score = 1
+                numCardMatches++
+            }
+        })
+        set.cards.sort((a, b) => b.score - a.score)
+        this.setState({ set })
+
+        //show success or no-matches message
+        if (numCardMatches) toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
+        else toast.error('no matches!', {autoClose: 2000})
+    }
+
     render() {
         
         let uiFlashcards
@@ -265,6 +286,7 @@ class SetShow extends React.Component {
                         sortByMarked={this.sortByMarked}
                         numCards={this.state.set.cards.length}
                         numMarked={numMarked}
+                        onSubmitFcardSearch={this.onSubmitFcardSearch}
                         />
                         
                         {/* show cards! */}
