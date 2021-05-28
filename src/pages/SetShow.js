@@ -211,7 +211,10 @@ class SetShow extends React.Component {
         //score flashcards based on whether they contain query, then sort by score
         set.cards.forEach(card => {
             card.score = 0
-            if (card.ques.toLowerCase().includes(query.toLowerCase())) {
+            card.queryIndexes = false
+            const index = card.ques.toLowerCase().indexOf(query.toLowerCase())
+            if (index >= 0) {
+                card.queryIndexes = [index, index + query.length]
                 card.score = 1
                 numCardMatches++
             }
