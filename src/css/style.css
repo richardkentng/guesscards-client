@@ -196,6 +196,13 @@ nav ul li *:hover {
   transform: translate(-4px, 2px);
 }
 
+.query-match {
+  color: white;
+  background-color: black;
+  padding: 3px;
+  border-radius: 5px;
+}
+
 .hover-to-see {
   opacity: 0.5;
 }
