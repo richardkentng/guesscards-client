@@ -205,25 +205,68 @@ class SetShow extends React.Component {
 
 
     onSubmitFcardSearch = (query) => {
+        // console.log('============================SEARCH query: ', query);
         const set = {...this.state.set}
-
         let numCardMatches = 0
-        //score flashcards based on whether they contain query, then sort by score
+        const arrQuery = strToArr(query)
+
+        //calculate score for each card based off it's match to query
         set.cards.forEach(card => {
+            // console.log('-------------------CARD ques: ', card.ques);
             card.score = 0
-            card.queryIndexes = false
-            const index = card.ques.toLowerCase().indexOf(query.toLowerCase())
-            if (index >= 0) {
-                card.queryIndexes = [index, index + query.length]
-                card.score = 1
-                numCardMatches++
+            card.queryIndexes = []
+            if (query.toLowerCase().trim() === card.ques.toLowerCase().trim()) { //check for perfect match
+                card.score = 9999
+                card.queryIndexes = [[0, card.ques.length, 'match', 'no-space']]
+            } else { //check for whole-word match
+                const arrQues = strToArr(card.ques)
+                arrQues.forEach(qWord => {
+                    // console.log('-----word: ', qWord);
+                    if (arrQuery.includes(qWord)) { //whole-word matching
+                        const indexQwordInQues = card.ques.toLowerCase().indexOf(qWord)
+                        card.queryIndexes.push([indexQwordInQues, indexQwordInQues + qWord.length, 'match', 'space'])
+                        // console.log('1 push.  whole word match. queryIndexes: ', card.queryIndexes);
+                        card.score += qWord.length
+                    } else { //check for best partial match (length > 1)
+                        const arrPartialMatchesSwordInQword = []
+                        arrQuery.forEach(sWord => {
+                            const indexOfSwordInQword = qWord.indexOf(sWord)
+                            if (indexOfSwordInQword >= 0) arrPartialMatchesSwordInQword.push([sWord.length, indexOfSwordInQword])
+                        })
+                        if (arrPartialMatchesSwordInQword.length && arrPartialMatchesSwordInQword[0][0] > 1) { //use partial match
+                            arrPartialMatchesSwordInQword.sort((a, b) => b[0] - a[0])
+
+                                const indexOfSwordInQword = arrPartialMatchesSwordInQword[0][1]
+                                const indexQwordInQues = card.ques.toLowerCase().indexOf(qWord)
+                                        card.queryIndexes.push([indexQwordInQues, indexQwordInQues + indexOfSwordInQword, 'no-match', 'no-space'])
+                                        card.queryIndexes.push([indexQwordInQues + indexOfSwordInQword, indexQwordInQues + indexOfSwordInQword + arrPartialMatchesSwordInQword[0][0], 'match', 'no-space'])
+                                        card.queryIndexes.push([indexQwordInQues + indexOfSwordInQword + arrPartialMatchesSwordInQword[0][0], indexQwordInQues + qWord.length, 'no-match', 'space'])
+                                        // console.log('3 push.  partial non-beginning match. queryIndexes: ', card.queryIndexes);
+                                        card.score += arrPartialMatchesSwordInQword[0][0]/2
+                        } else { //no matches (neither whole word or partial match)
+                            const indexQwordInQues = card.ques.toLowerCase().indexOf(qWord)
+                            card.queryIndexes.push([indexQwordInQues, indexQwordInQues + qWord.length, 'no-match', 'space'])
+                            // console.log('1no-match-push. queryIndexes: ', card.queryIndexes);
+                        }
+                    }
+                })
             }
+            if (card.score) numCardMatches ++
         })
-        set.cards.sort((a, b) => b.score - a.score)
+
+        function strToArr(str) {
+            return str.toLowerCase().replace(/\s{2,}/g, ' ').trim().split(' ')
+        }
+
         this.setState({ set })
 
-        //show success or no-matches message
-        if (numCardMatches) toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
+        //show success message & sort cards, or show no-matches message
+        if (numCardMatches) {
+            set.cards.sort((a, b) => b.score - a.score)
+            toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
+            //enable all sort buttons
+            document.querySelectorAll('.btn-sort').forEach(btn => { btn.disabled = false })
+        }
         else toast.error('no matches!', {autoClose: 2000})
     }
 
