@@ -65,14 +65,21 @@ function FlashCard(props) {
                 </div>
 
                 <div className="ques-ans" onClick={toggleDisplayAns}>
-                    {props.queryIndexes ?
+                    {props.score ?
                     (
-                        <div>
-                            <span>{props.ques.substring(0, props.queryIndexes[0])}</span>
-                            <span className="query-match">{props.ques.substring(props.queryIndexes[0], props.queryIndexes[1])}</span>
-                            <span>{props.ques.substring(props.queryIndexes[1], props.ques.length)}</span>
-                        </div>
-                    
+                        <>
+                            {[].concat(props.queryIndexes.map(([idx1, idx2, match, space]) => {
+                                    return (
+                                    <>
+                                    <span 
+                                        className={match === 'match' && 'query-match'}>
+                                        {props.ques.substring(idx1, idx2)}
+                                    </span>
+                                    {space === 'space' && <> </>}
+                                    </>
+                                    )
+                            }))}
+                        </>
                     ) 
                     :
                     <p>{props.ques}</p>
