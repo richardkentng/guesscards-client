@@ -15,6 +15,7 @@ function SearchBar(props) {
                 placeholder="search questions"
                 value={quesQuery}
                 onChange={(e) => { setQuesQuery(e.target.value) }}
+                required={true}
             />
             <button 
                 type="button" 
