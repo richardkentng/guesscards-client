@@ -75,7 +75,10 @@ function Options(props) {
                 >
                 Marked <span className="red-num-marked">{props.numMarked > 0 ? props.numMarked : ''}</span>
             </button>
-            <SearchBar onSubmitFcardSearch={props.onSubmitFcardSearch}/>
+            <SearchBar 
+            onSubmitFcardSearch={props.onSubmitFcardSearch}
+            clearFcardSearch={props.clearFcardSearch}
+            />
 
         </div>
     )

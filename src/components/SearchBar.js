@@ -12,10 +12,16 @@ function SearchBar(props) {
     return (
         <form onSubmit={submitSearch}>
             <input
-                placeholder="search question (exact)"
+                placeholder="search questions"
                 value={quesQuery}
                 onChange={(e) => { setQuesQuery(e.target.value) }}
             />
+            <button 
+                type="button" 
+                onClick={props.clearFcardSearch} 
+                className="gray-72">
+                _X_
+            </button>
         </form>
     )
 }

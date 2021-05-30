@@ -263,11 +263,17 @@ class SetShow extends React.Component {
         //show success message & sort cards, or show no-matches message
         if (numCardMatches) {
             set.cards.sort((a, b) => b.score - a.score)
-            toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
+            // toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
             //enable all sort buttons
             document.querySelectorAll('.btn-sort').forEach(btn => { btn.disabled = false })
         }
-        else toast.error('no matches!', {autoClose: 2000})
+        else toast.error('no matches!', {autoClose: 1500})
+    }
+
+    clearFcardSearch = () => {
+        const set = {...this.state.set}
+        set.cards.forEach(card => card.score = 0)
+        this.setState({ set })
     }
 
     render() {
@@ -333,6 +339,7 @@ class SetShow extends React.Component {
                         numCards={this.state.set.cards.length}
                         numMarked={numMarked}
                         onSubmitFcardSearch={this.onSubmitFcardSearch}
+                        clearFcardSearch={this.clearFcardSearch}
                         />
                         
                         {/* show cards! */}
