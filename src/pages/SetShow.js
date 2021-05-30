@@ -264,8 +264,15 @@ class SetShow extends React.Component {
         if (numCardMatches) {
             set.cards.sort((a, b) => b.score - a.score)
             // toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
-            //enable all sort buttons
-            document.querySelectorAll('.btn-sort').forEach(btn => { btn.disabled = false })
+            //conditionally enable sort buttons
+            document.querySelectorAll('.btn-sort').forEach(btn => { 
+                if (btn.classList.contains('btn-sort-rand')) btn.style.opacity = 1
+                else if ((btn.classList.contains('btn-sort-mark'))) {
+                    const numMarkedCards = this.state.set.cards.filter(c => c.marked === true).length
+                    if (numMarkedCards) btn.disabled = false
+                }
+                else btn.disabled = false 
+            })
         }
         else toast.error('no matches!', {autoClose: 1500})
     }
