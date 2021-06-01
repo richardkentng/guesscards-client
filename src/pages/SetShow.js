@@ -4,8 +4,10 @@ import Modal from 'react-modal'
 import FlashCard from '../components/FlashCard'
 import FormFlashcardCreate from '../components/FormFlashcardCreate'
 import Options from '../components/Options'
+import OptionsBottom from '../components/OptionsBottom'
 import LoadingWheel from '../components/LoadingWheel'
 import SetModel from '../models/set'
+import colors from '../partials/colors'
 import { toast } from 'react-toastify'
 
 Modal.setAppElement('#root')
@@ -19,7 +21,8 @@ class SetShow extends React.Component {
         inputSetNameDeleteSet: '',
         modalIsOpenEditSet: false,
         styleBtnDisplayFormDeleteSet: {display: 'block'},
-        styleFormDeleteSet: {display: 'none'}
+        styleFormDeleteSet: {display: 'none'},
+        numAnswersShown: 0
     }
 
     componentDidMount() {
@@ -203,6 +206,18 @@ class SetShow extends React.Component {
         this.props.history.push('/sets')
     }
 
+    updateNumAnswersShown = () => {
+        let numAnswersShown = 0
+
+        const contFcardEls = document.querySelectorAll('.cont-FlashCard')
+        contFcardEls.forEach(contFcard => {
+            if (contFcard.style.backgroundColor === colors.yellowRevealed) {
+                numAnswersShown++
+            }
+        })
+        
+        this.setState({ numAnswersShown })
+    }
 
     onSubmitFcardSearch = (query) => {
         // console.log('============================SEARCH query: ', query);
@@ -295,6 +310,7 @@ class SetShow extends React.Component {
                 {...card}
                 handleFlashcardDelete={this.handleFlashcardDelete}    
                 flashcardEdit={this.flashcardEdit}
+                updateNumAnswersShown={this.updateNumAnswersShown}
                 />
                 )
             })
@@ -338,7 +354,6 @@ class SetShow extends React.Component {
                         flashcardCreate={this.flashcardCreate}
                         />
                         
-                        {/* Show randomize button */}
                         <Options 
                         sortByRandom={this.sortByRandom}
                         sortByCreatedAt={this.sortByCreatedAt}
@@ -349,8 +364,12 @@ class SetShow extends React.Component {
                         clearFcardSearch={this.clearFcardSearch}
                         />
                         
-                        {/* show cards! */}
+                        {/* show flashcards! */}
                         {uiFlashcards}
+
+                        <OptionsBottom
+                            numAnswersShown={this.state.numAnswersShown}
+                        />
                     </div>
                     </>
                 }
