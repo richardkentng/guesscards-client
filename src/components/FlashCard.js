@@ -25,6 +25,7 @@ function FlashCard(props) {
     const toggleDisplayAns = () => {
         setStyleAns(toggleBlockNone(styleAns))
         setStyleFlashCard(toggleYellow(styleFlashCard))
+        setTimeout(() => { props.updateNumAnswersShown() }, 50)
     }
     
     /********************************************* 
