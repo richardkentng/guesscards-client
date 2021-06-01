@@ -278,15 +278,10 @@ class SetShow extends React.Component {
         //show success message & sort cards, or show no-matches message
         if (numCardMatches) {
             set.cards.sort((a, b) => b.score - a.score)
-            // toast.info(`${numCardMatches} matches moved to top!`, { autoClose: 2000 })
-            //conditionally enable sort buttons
+            // enable sort buttons (exclude button.btn-sort-mark)
             document.querySelectorAll('.btn-sort').forEach(btn => { 
                 if (btn.classList.contains('btn-sort-rand')) btn.style.opacity = 1
-                else if ((btn.classList.contains('btn-sort-mark'))) {
-                    const numMarkedCards = this.state.set.cards.filter(c => c.marked === true).length
-                    if (numMarkedCards) btn.disabled = false
-                }
-                else btn.disabled = false 
+                else if (!btn.classList.contains('btn-sort-mark')) btn.disabled = false 
             })
         }
         else toast.error('no matches!', {autoClose: 1500})
@@ -369,6 +364,7 @@ class SetShow extends React.Component {
 
                         <OptionsBottom
                             numAnswersShown={this.state.numAnswersShown}
+                            numCards={this.state.set.cards.length}
                         />
                     </div>
                     </>
