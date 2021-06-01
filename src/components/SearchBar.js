@@ -10,7 +10,7 @@ function SearchBar(props) {
     }
 
     return (
-        <form onSubmit={submitSearch}>
+        <form onSubmit={submitSearch} className="SearchBar-fcard-ques">
             <input
                 placeholder="search questions"
                 value={quesQuery}
