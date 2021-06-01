@@ -233,15 +233,51 @@ nav ul li *:hover {
 
 /************   Options component     ********/
 .Options {
-  background-color: silver;
-  background: linear-gradient(0.25turn, transparent, #bbbbbb, transparent);
+  background-color: #999;
   box-shadow: 0 0 0;
+  min-height: 2.5rem;
   text-align: center;
-  padding: 5px;
+  padding-left: 0;
+  padding-right: 0;
 }
-.Options .btn-rand {
-  padding: 2px;
-  color: #666;
+
+.btn-sort {
+  padding: 0;
+  margin: 0;
+  width: 60px;
+  height: 40px;
+  font-size: small;
+  color: #727272;
+}
+.btn-sort .text-marked-num {
+  display: inline-flex;
+}
+.btn-sort .text-marked-num .red-num-marked {
+  white-space: nowrap;
+}
+
+.btn-sort-rand {
+  width: 60px;
+}
+
+.btn-sort-new {
+  width: 55px;
+}
+
+.btn-sort-old {
+  width: 50px;
+}
+
+.btn-sort-mark {
+  transform: translateY(-2px);
+  width: 80px;
+}
+
+.SearchBar-fcard-ques {
+  margin: 0 10px;
+  border: 3px solid silver;
+  border-radius: 5px;
+  display: inline-flex;
 }
 
 /************   'SetShow page'  (/sets/:id)    ********/
