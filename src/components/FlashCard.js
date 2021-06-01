@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import FormFlashcardEdit from './FormFlashcardEdit'
+import colors from '../partials/colors'
 
 function FlashCard(props) {
-
     const [styleFlashCard, setStyleFlashCard] = useState({display: 'block'})
     const [styleFlashCardeForm, setStyleFlashCardeForm] = useState({display: 'none'})
     const [styleAns, setStyleAns] = useState({display: 'none'})
@@ -39,10 +39,11 @@ function FlashCard(props) {
         return updateStyleObj
     }
 
-    const yellowish = '#ffec84'
     const toggleYellow = (styleObj) => {
         const updatedStyle = {...styleObj}
-        if (updatedStyle.backgroundColor !== yellowish) updatedStyle.backgroundColor = yellowish
+        if (updatedStyle.backgroundColor !== colors.yellowRevealed) {
+            updatedStyle.backgroundColor = colors.yellowRevealed
+        }
         else updatedStyle.backgroundColor = 'white'
         return updatedStyle
     }
