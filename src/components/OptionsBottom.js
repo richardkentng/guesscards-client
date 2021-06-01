@@ -15,13 +15,14 @@ function OptionsBottom(props) {
     return (
         <div 
             className="FlashCard Options"
-            style={{ display: props.numAnswersShown ? 'block' : 'none' }}
+            style={{ display: props.numCards >= 2 ? 'block' : 'none' }}
         >
             <button 
                 onClick={hideAnswers}
                 className="gray-72"
+                disabled={props.numAnswersShown > 0 ? false : true }
                 >
-                Hide Answers
+                Hide {props.numAnswersShown} Answers
             </button>
         </div>
     )
