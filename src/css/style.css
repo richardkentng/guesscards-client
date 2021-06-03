@@ -289,19 +289,22 @@ nav ul li *:hover {
   margin: auto;
 }
 .header-set-show .btn-back-to-sets {
-  padding: 0;
-  margin: 0;
   width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbb;
+  height: auto;
 }
-.header-set-show .btn-back-to-sets i {
-  font-size: 40px;
-  vertical-align: bottom;
-  color: #389daa;
+.header-set-show .btn-back-to-sets .arrow-left {
+  width: 0;
+  height: 0;
+  border-right: 22px solid #666;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
 }
-.header-set-show .btn-back-to-sets i:hover {
-  color: black;
-  background-color: #ddd;
-  font-weight: 600;
+.header-set-show .btn-back-to-sets:hover {
+  filter: brightness(1.2);
 }
 .header-set-show .cont-setName-numCards {
   display: flex;

@@ -270,21 +270,45 @@ nav {
     justify-content: center;
     max-width: $max-width;
     margin: auto;
+
+    // .cont-btn-back-to-sets {
+    //     background-color: rebeccapurple;
+    //     width: 10px;
+    //     .btn-back-to-sets {
+    //         border: 2px solid lime;
+    //         height: 100%;
+    //         i {
+    //             font-size: 40px;
+    //             vertical-align: bottom;
+    //             color: rgb(56, 157, 170);
+    //         }
+    //         i:hover {
+    //             color: black;
+    //             background-color: #ddd;
+    //             font-weight: 600;
+    //         }
+    //     }
+    // }
+
     .btn-back-to-sets {
-        padding: 0;
-        margin: 0;
         width: 50px;
-        i {
-            font-size: 40px;
-            vertical-align: bottom;
-            color: rgb(56, 157, 170);
-        }
-        i:hover {
-            color: black;
-            background-color: #ddd;
-            font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #bbb;
+        height: auto;
+        .arrow-left {
+            width: 0;
+            height: 0;
+            border-right: 22px solid #666;
+            border-top: 22px solid transparent;
+            border-bottom: 22px solid transparent;
         }
     }
+    .btn-back-to-sets:hover {
+        filter: brightness(1.2)
+    }
+
     .cont-setName-numCards {
         display: flex;
         align-items: center;

@@ -320,9 +320,9 @@ class SetShow extends React.Component {
                     <br/>
                     <div className="header-set-show">
                         {/* back arrow - see all sets */}
-                        <button className="btn-back-to-sets" onClick={this.onClickBackArrow}>
-                            <i className="material-icons">arrow_back</i>
-                        </button>
+                        <div className="btn-back-to-sets" onClick={this.onClickBackArrow}>
+                            <div className="arrow-left"></div>
+                        </div>
 
                         {/* set's title and (#) */}
                         <div className="cont-setName-numCards">
