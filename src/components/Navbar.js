@@ -50,7 +50,7 @@ function Navbar(props) {
     }
 
     return (
-        <nav className={user ? 'nav-bb-in' : 'nav-bb-out'}>
+        <nav className={user ? 'nav-bb-in' : 'nav-bb-out'} id="navbar">
             <ul>
                     <li className="icon">
                         <img src={icon} alt="guesscards" onClick={onClickIcon}/>
