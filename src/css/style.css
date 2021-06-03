@@ -389,6 +389,12 @@ nav ul li *:hover {
   color: #1ecbff;
 }
 
+.btn-scroll-to-top {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 /*****   modal - edit set   ****/
 .form-edit-set {
   display: flex;
