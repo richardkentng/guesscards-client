@@ -328,6 +328,22 @@ nav ul li *:hover {
   padding: 20px;
 }
 
+.btn-scroll-to-top {
+  margin-left: 50px;
+  background-color: #eee;
+  padding: 5px 10px 5px 10px;
+  border-radius: 2px;
+}
+
+.btn-scroll-to-top:hover {
+  background-color: #ddd;
+}
+
+.btn-scroll-to-top:active {
+  color: black;
+  background-color: #ccc;
+}
+
 /************   'SetContainer page'  (/sets)    ********/
 .SetCont-grid {
   display: grid;
@@ -387,12 +403,6 @@ nav ul li *:hover {
 }
 .Landing-grid a {
   color: #1ecbff;
-}
-
-.btn-scroll-to-top {
-  background-color: #eee;
-  padding: 10px;
-  border-radius: 5px;
 }
 
 /*****   modal - edit set   ****/
