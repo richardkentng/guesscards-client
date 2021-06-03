@@ -24,6 +24,8 @@ function OptionsBottom(props) {
                 >
                 Hide {props.numAnswersShown} Answers
             </button>
+
+            <a href="#navbar" className="btn-scroll-to-top">[^]</a>
         </div>
     )
 }
