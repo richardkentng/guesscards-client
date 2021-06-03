@@ -328,20 +328,17 @@ nav ul li *:hover {
   padding: 20px;
 }
 
-.btn-scroll-to-top {
+.a-scroll-to-top {
   margin-left: 50px;
+}
+.a-scroll-to-top img {
   background-color: #eee;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 12px 5px 12px;
   border-radius: 2px;
+  vertical-align: bottom;
 }
-
-.btn-scroll-to-top:hover {
-  background-color: #ddd;
-}
-
-.btn-scroll-to-top:active {
-  color: black;
-  background-color: #ccc;
+.a-scroll-to-top img:hover {
+  filter: brightness(0.9);
 }
 
 /************   'SetContainer page'  (/sets)    ********/
