@@ -5,10 +5,10 @@ import img_src_arrow_up from '../images/arrow_up_20.png'
 
 function OptionsBottom(props) {
 
+    //track location of btn-back-to-sets:
     let setTimeoutInProgress = false
 
     function trackBtnBackPosition() {
-
         if (!setTimeoutInProgress) {
             setTimeout(() => {
                 trackBtnBackPosition()
@@ -22,7 +22,7 @@ function OptionsBottom(props) {
         const btnBackToSet2 = btnBackToSets[1]
         const aLinkScrollToTop = document.querySelector('.a-scroll-to-top')
         const btn1pos = btnBackToSet1.getBoundingClientRect()
-        
+
         //if button.btn-back-to-sets vanishes from view, show 2 buttons in OptionsBottom
         if (btn1pos.top < -1 * btn1pos.height) {
             btnBackToSet2.style.display = 'flex'
@@ -30,15 +30,26 @@ function OptionsBottom(props) {
             setTimeout(() => {
                 aLinkScrollToTop.style.opacity = '1'
                 btnBackToSet2.style.opacity = '1'
-            })
+            }, 50)
         }
     }
 
     useEffect(() => {
-        window.addEventListener('wheel', trackBtnBackPosition)
-        return () => {
-            window.removeEventListener('wheel', trackBtnBackPosition)
+        //for mobile devices, show nav buttons right away:
+        if (window.innerWidth < 500) {
+            const btnBackToSets = document.querySelectorAll('.btn-back-to-sets')
+            const btnBackToSet2 = btnBackToSets[1]
+            const aLinkScrollToTop = document.querySelector('.a-scroll-to-top')
+            btnBackToSet2.style.display = 'flex'
+            aLinkScrollToTop.style.display = 'inline-block'
+            setTimeout(() => {
+                aLinkScrollToTop.style.opacity = '1'
+                btnBackToSet2.style.opacity = '1'
+            }, 50)
+        } else {
+            window.addEventListener('wheel', trackBtnBackPosition)
         }
+        return () => { window.removeEventListener('wheel', trackBtnBackPosition) }
     }, [])
 
     const hideAnswers = () => {
