@@ -148,19 +148,19 @@ nav {
     box-shadow: $box-shadow1;
     position: relative;
 }
-%bdrs-fcard-left {
+%bdrs-left {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-%bdrs-fcard-right {
+%bdrs-right {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 .cont-FlashCard {
     margin-bottom: 15px;
     background-color: white;
-    @extend %bdrs-fcard-left;
-    @extend %bdrs-fcard-right;
+    @extend %bdrs-left;
+    @extend %bdrs-right;
 }
 
 .aFlashCard {
@@ -168,7 +168,7 @@ nav {
     .cont-mark {
         width: 30px;
         background-color: rgb(184, 184, 184);
-        @extend %bdrs-fcard-left;
+        @extend %bdrs-left;
     }
     .cont-mark:hover {
         padding: 10px;
@@ -184,7 +184,7 @@ nav {
             transform: translate(-4px, 2px)
         }
         background-color: rgb(215, 215, 215);
-        @extend %bdrs-fcard-right;
+        @extend %bdrs-right;
     }
 }
 .query-match {
@@ -222,8 +222,9 @@ nav {
 }
 
 /************   Options component     ********/
+$options-bc: #999;
 .Options {
-    background-color: #999;
+    background-color: $options-bc;
     box-shadow: 0 0 0;
     min-height: 2.5rem;
     text-align: center;
@@ -255,41 +256,7 @@ nav {
     width: 80px;
 }
 
-.SearchBar-fcard-ques {
-    margin: 0 10px;
-    border: 3px solid silver;
-    border-radius: 5px;
-    display: inline-flex;
-}
-
-/************   'SetShow page'  (/sets/:id)    ********/
-
-.header-set-show {
-    display: flex;
-    background-color: rgb(94, 94, 94);
-    justify-content: center;
-    max-width: $max-width;
-    margin: auto;
-
-    // .cont-btn-back-to-sets {
-    //     background-color: rebeccapurple;
-    //     width: 10px;
-    //     .btn-back-to-sets {
-    //         border: 2px solid lime;
-    //         height: 100%;
-    //         i {
-    //             font-size: 40px;
-    //             vertical-align: bottom;
-    //             color: rgb(56, 157, 170);
-    //         }
-    //         i:hover {
-    //             color: black;
-    //             background-color: #ddd;
-    //             font-weight: 600;
-    //         }
-    //     }
-    // }
-
+%btn-back-to-sets {
     .btn-back-to-sets {
         width: 50px;
         display: flex;
@@ -300,14 +267,62 @@ nav {
         .arrow-left {
             width: 0;
             height: 0;
-            border-right: 22px solid #666;
+            border-right: 22px solid #777;
             border-top: 22px solid transparent;
             border-bottom: 22px solid transparent;
         }
     }
     .btn-back-to-sets:hover {
-        filter: brightness(1.2)
+        filter: brightness(1.2);
+        .arrow-left {
+            border-right: 30px solid #777;
+        }
     }
+}
+
+.OptionsBottom {
+    background-color: $options-bc;
+    background: linear-gradient(0.25turn, rgb(145, 145, 145), $options-bc);
+    @extend %bdrs-left;
+    @extend %bdrs-right;
+    .cont-options-bottom {
+        height: 40px;
+        display: flex;
+        @extend %btn-back-to-sets;
+        .btn-back-to-sets {
+            @extend %bdrs-left;
+            .arrow-left {
+                border-right: 17px solid #777;
+                border-top: 17px solid transparent;
+                border-bottom: 17px solid transparent;
+            }
+        }
+        .cont-other-btns {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+.SearchBar-fcard-ques {
+    margin: 0 10px;
+    border: 3px solid silver;
+    border-radius: 5px;
+    display: inline-flex;
+}
+
+/************   'SetShow page'  (/sets/:id)    ********/
+.header-set-show {
+    display: flex;
+    background-color: rgb(94, 94, 94);
+    justify-content: center;
+    max-width: $max-width;
+    margin: auto;
+
+    @extend %btn-back-to-sets;
 
     .cont-setName-numCards {
         display: flex;
@@ -336,7 +351,7 @@ nav {
 .a-scroll-to-top {
     margin-left: 50px;
     img { 
-        background-color: #eee;
+        background-color: rgb(216, 216, 216);
         padding: 5px 12px 5px 12px;
         border-radius: 2px;
         vertical-align: bottom;

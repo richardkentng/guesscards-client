@@ -158,12 +158,12 @@ nav ul li *:hover {
   position: relative;
 }
 
-.aFlashCard .cont-mark, .cont-FlashCard {
+.OptionsBottom .cont-options-bottom .btn-back-to-sets, .OptionsBottom, .aFlashCard .cont-mark, .cont-FlashCard {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.aFlashCard .btn-edit-btn-del, .cont-FlashCard {
+.OptionsBottom, .aFlashCard .btn-edit-btn-del, .cont-FlashCard {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -273,6 +273,48 @@ nav ul li *:hover {
   width: 80px;
 }
 
+.header-set-show .btn-back-to-sets, .OptionsBottom .cont-options-bottom .btn-back-to-sets {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbb;
+  height: auto;
+}
+.header-set-show .btn-back-to-sets .arrow-left, .OptionsBottom .cont-options-bottom .btn-back-to-sets .arrow-left {
+  width: 0;
+  height: 0;
+  border-right: 22px solid #777;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+}
+.header-set-show .btn-back-to-sets:hover, .OptionsBottom .cont-options-bottom .btn-back-to-sets:hover {
+  filter: brightness(1.2);
+}
+.header-set-show .btn-back-to-sets:hover .arrow-left, .OptionsBottom .cont-options-bottom .btn-back-to-sets:hover .arrow-left {
+  border-right: 30px solid #777;
+}
+
+.OptionsBottom {
+  background-color: #999;
+  background: linear-gradient(0.25turn, #919191, #999);
+}
+.OptionsBottom .cont-options-bottom {
+  height: 40px;
+  display: flex;
+}
+.OptionsBottom .cont-options-bottom .btn-back-to-sets .arrow-left {
+  border-right: 17px solid #777;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+}
+.OptionsBottom .cont-options-bottom .cont-other-btns {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .SearchBar-fcard-ques {
   margin: 0 10px;
   border: 3px solid silver;
@@ -287,24 +329,6 @@ nav ul li *:hover {
   justify-content: center;
   max-width: 700px;
   margin: auto;
-}
-.header-set-show .btn-back-to-sets {
-  width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #bbb;
-  height: auto;
-}
-.header-set-show .btn-back-to-sets .arrow-left {
-  width: 0;
-  height: 0;
-  border-right: 22px solid #666;
-  border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent;
-}
-.header-set-show .btn-back-to-sets:hover {
-  filter: brightness(1.2);
 }
 .header-set-show .cont-setName-numCards {
   display: flex;
@@ -335,7 +359,7 @@ nav ul li *:hover {
   margin-left: 50px;
 }
 .a-scroll-to-top img {
-  background-color: #eee;
+  background-color: #d8d8d8;
   padding: 5px 12px 5px 12px;
   border-radius: 2px;
   vertical-align: bottom;
