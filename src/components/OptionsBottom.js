@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import colors from '../partials/colors'
 import img_src_arrow_up from '../images/arrow_up_20.png'
 
@@ -15,22 +16,33 @@ function OptionsBottom(props) {
 
     return (
         <div 
-            className="FlashCard Options"
+            className="OptionsBottom"
             style={{ display: props.numCards >= 2 ? 'block' : 'none' }}
         >
-            <button 
-                onClick={hideAnswers}
-                className="gray-72"
-                disabled={props.numAnswersShown > 0 ? false : true }
-                >
-                Hide {props.numAnswersShown} Answers
-            </button>
+            <div className="cont-options-bottom">
+                {/* button - back to sets */}
+                <div className="btn-back-to-sets" onClick={() => { props.history.push('/sets') }}>
+                    <div className="arrow-left"></div>
+                </div>
 
-            <a href="#navbar" className="a-scroll-to-top">
-                <img src={img_src_arrow_up} alt="arrow up"/>
-            </a>
+                <div className="cont-other-btns">
+                    {/* button - hide answers */}
+                    <button 
+                        onClick={hideAnswers}
+                        className="gray-72"
+                        disabled={props.numAnswersShown > 0 ? false : true }
+                        >
+                        Hide {props.numAnswersShown} Answers
+                    </button>
+        
+                    {/* anchor link - scroll to very top */}
+                    <a href="#navbar" className="a-scroll-to-top">
+                        <img src={img_src_arrow_up} alt="arrow up"/>
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default OptionsBottom
+export default withRouter(OptionsBottom)
