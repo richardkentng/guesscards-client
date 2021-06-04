@@ -303,6 +303,11 @@ nav ul li *:hover {
   height: 40px;
   display: flex;
 }
+.OptionsBottom .cont-options-bottom .btn-back-to-sets {
+  display: none;
+  transition: opacity 2s;
+  opacity: 0;
+}
 .OptionsBottom .cont-options-bottom .btn-back-to-sets .arrow-left {
   border-right: 17px solid #777;
   border-top: 17px solid transparent;
@@ -356,6 +361,9 @@ nav ul li *:hover {
 }
 
 .a-scroll-to-top {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s;
   margin-left: 50px;
 }
 .a-scroll-to-top img {

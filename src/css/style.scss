@@ -290,6 +290,9 @@ $options-bc: #999;
         display: flex;
         @extend %btn-back-to-sets;
         .btn-back-to-sets {
+            display: none;
+            transition: opacity 2s;
+            opacity: 0;
             @extend %bdrs-left;
             .arrow-left {
                 border-right: 17px solid #777;
@@ -349,6 +352,9 @@ $options-bc: #999;
 }
 
 .a-scroll-to-top {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
     margin-left: 50px;
     img { 
         background-color: rgb(216, 216, 216);
