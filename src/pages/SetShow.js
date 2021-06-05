@@ -8,6 +8,7 @@ import OptionsBottom from '../components/OptionsBottom'
 import LoadingWheel from '../components/LoadingWheel'
 import SetModel from '../models/set'
 import colors from '../partials/colors'
+import functions from '../partials/functions'
 import { toast } from 'react-toastify'
 
 Modal.setAppElement('#root')
@@ -34,19 +35,13 @@ class SetShow extends React.Component {
 
                 //handle errors from server:
                 if(!('set' in res)) {
-
                     //handle invalid set id response:
                     if ('msg' in res && res.msg === 'Failed to find set by id.') {
                         toast.warn('That set does not exist!')
                         return this.props.history.push('/sets')
                     }
-                    //handle token expired error, or other errors:
-                    if ('msg' in res && res.msg === "token does not exist in middleware") toast.warn('You must be logged in to access that route!')
-                    else if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired. Please log in again.')
-                    else toast.error('An error occured... The server did not respond with any flashcards. Try logging in again.')
-
+                    functions.handleAuthErrorsWithToasts(res)
                     localStorage.setItem('uid', '')
-
                     return this.props.history.push('/login')
                 } 
 
