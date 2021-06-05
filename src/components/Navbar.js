@@ -5,6 +5,7 @@ import AuthModel from '../models/auth'
 import { useRecoilState } from 'recoil'
 import {userState} from '../recoil/atom'
 import icon from '../images/icon_t.png'
+import functions from '../partials/functions'
 import { toast } from 'react-toastify'
 
 function Navbar(props) {
@@ -31,9 +32,7 @@ function Navbar(props) {
 
                 //handle errors like expired token:
                 if (!('userData' in res)) {
-                    if ('err' in res && res.err.name === "TokenExpiredError") toast.warn('Your session expired.  Please log in again.')
-                    else { toast.error('An error occured... Try logging in again. (Navbar)') }
-
+                    functions.handleAuthErrorsWithToasts(res)
                     clearStoredTokenAndGlobalUser()
                     return props.history.push('/login')
                 }
