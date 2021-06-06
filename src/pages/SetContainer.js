@@ -16,6 +16,7 @@ function SetContainer(props) {
 
     const setCreate = (name) => {
         SetModel.create({name}).then(res => {
+            if(!checkKeyInRes('set', res)) return
             props.history.push(`/sets/${res.set._id}`)
         })
     }
@@ -24,20 +25,22 @@ function SetContainer(props) {
         //update last visited page (for redirection purposes on landing page)
         localStorage.setItem('page', 'SetContainer')
 
-        SetModel.all().then(data => {
-
-            //handle errors like expired token
-            if (!('sets' in data)) {
-                functions.handleAuthErrorsWithToasts(data)
-                setUser(false)
-                localStorage.setItem('uid', '')
-
-                return props.history.push('/login')
-            }
-
-            setSets(data.sets)
+        SetModel.all().then(res => {
+            if(!checkKeyInRes('sets', res)) return
+            setSets(res.sets)
         })
     }, [])
+
+    const checkKeyInRes = (key, res) => {
+        if(!(key in res)) {
+            functions.handleAuthErrorsWithToasts(res)
+            setUser(false)
+            localStorage.setItem('uid', '')
+            props.history.push('/login')
+            return false
+        }
+        return true
+    }
 
     let uiSets
     if (typeof sets === 'object') {
