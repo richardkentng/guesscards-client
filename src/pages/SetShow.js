@@ -57,6 +57,10 @@ class SetShow extends React.Component {
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
             const set = {...this.state.set}
+            if(!('card' in res)) {
+                functions.handleAuthErrorsWithToasts(res)
+                return this.props.history.push('/login')
+            }
             set.cards.unshift(res.card)
             this.setState({ set })
 
