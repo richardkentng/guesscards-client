@@ -56,11 +56,8 @@ class SetShow extends React.Component {
 
     flashcardCreate = (body) => {
         SetModel.createFlashcard(this.state.set._id, body).then(res => {
+            if(!this.checkKeyInRes('card', res)) return
             const set = {...this.state.set}
-            if(!('card' in res)) {
-                functions.handleAuthErrorsWithToasts(res)
-                return this.props.history.push('/login')
-            }
             set.cards.unshift(res.card)
             this.setState({ set })
 
@@ -99,6 +96,7 @@ class SetShow extends React.Component {
 
     flashcardEdit = (card) => {
         SetModel.editFlashcard(this.state.set._id, card).then(res => {
+            if(!this.checkKeyInRes('card', res)) return
             const updateSet = this.state.set
             //get index of card to be edited
             let index
@@ -134,10 +132,7 @@ class SetShow extends React.Component {
     
     flashcardDelete = (cardId) => {
         SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
-            if(!('card' in res)) {
-                functions.handleAuthErrorsWithToasts(res)
-                return this.props.history.push('/login')
-            }
+            if(!this.checkKeyInRes('card', res)) return
             const updateSet = this.state.set
             updateSet.cards = updateSet.cards.filter(c => {
                 return c._id !== res.card._id
@@ -150,6 +145,7 @@ class SetShow extends React.Component {
         e.preventDefault()
         if (!this.state.inputSetNameEdit) return toast.warn('You should probably give your set a name...')
         SetModel.edit(this.state.set._id, this.state.inputSetNameEdit).then(res => {
+            if(!this.checkKeyInRes('set', res)) return
             const updateSet = this.state.set
             updateSet.name = res.set.name
             this.setState({
@@ -162,9 +158,20 @@ class SetShow extends React.Component {
     onSubmitDeleteEntireSet = (e) => {
         if (e) e.preventDefault()
         SetModel.delete(this.state.set._id).then(res => {
+            if(!this.checkKeyInRes('set', res)) return
             if (res.set._id === this.state.set._id) toast.success(`Successfully deleted the set '${this.state.set.name}'`)
             this.props.history.push('/sets')
         })
+    }
+
+    checkKeyInRes = (key, res) => {
+        if(!(key in res)) {
+            functions.handleAuthErrorsWithToasts(res)
+            this.props.history.push('/login')
+            localStorage.uid = ''
+            return false
+        }
+        return true
     }
 
     onCloseModalEditSet = () => {
