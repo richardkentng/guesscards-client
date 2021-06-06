@@ -134,6 +134,10 @@ class SetShow extends React.Component {
     
     flashcardDelete = (cardId) => {
         SetModel.deleteFlashcard(this.state.set._id, cardId).then(res => {
+            if(!('card' in res)) {
+                functions.handleAuthErrorsWithToasts(res)
+                return this.props.history.push('/login')
+            }
             const updateSet = this.state.set
             updateSet.cards = updateSet.cards.filter(c => {
                 return c._id !== res.card._id
