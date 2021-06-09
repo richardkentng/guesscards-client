@@ -17,6 +17,25 @@ function SetContainer(props) {
     const setCreate = (name) => {
         SetModel.create({name}).then(res => {
             if(!checkKeyInRes('set', res)) return
+
+            //if localStorage.sets exists as an array, then push newSet to array and save it
+            //else set localStorage.sets to an array of one array
+            const newSet = [res.set.name, res.set._id]
+            if (localStorage.sets && 
+                typeof(JSON.parse(localStorage.sets)) === 'object' &&
+                Number.isInteger(JSON.parse(localStorage.sets).length)
+            ) {
+                const updatedSets = JSON.parse(localStorage.sets)
+                updatedSets.push(newSet)
+                localStorage.sets = JSON.stringify(updatedSets)
+
+            } else localStorage.sets = JSON.stringify([newSet])
+
+            //show or hide input.set-search based on numberOfSets
+            const numSets = JSON.parse(localStorage.sets).length
+            const inputSetSearch = document.querySelector('input.set-search')
+            if (inputSetSearch) inputSetSearch.style.display = numSets >= 2 ? 'inline' : 'none'
+
             props.history.push(`/sets/${res.set._id}`)
         })
     }
@@ -28,6 +47,13 @@ function SetContainer(props) {
         SetModel.all().then(res => {
             if(!checkKeyInRes('sets', res)) return
             setSets(res.sets)
+
+            //show or hide input.set-search
+            const inputSetSearch = document.querySelector('input.set-search')
+            if (inputSetSearch) inputSetSearch.style.display = res.sets.length >= 2 ? 'inline' : 'none'
+            //store sets in localStorage
+            const sets = res.sets.map(({name, _id}) => [name, _id])
+            localStorage.sets = JSON.stringify(sets)
         })
     }, [])
 
@@ -40,6 +66,18 @@ function SetContainer(props) {
             return false
         }
         return true
+    }
+
+    const updateLocalStorageSets_updateSearchBarVisbility = (res) => {
+        // const inputSetSearch = document.querySelector('input.set-search')
+        // if (res.sets.length < 2) {
+        //     localStorage.sets = ''
+        //     if (inputSetSearch) inputSetSearch.style.display = 'none'
+        // } else {
+        //     const sets = res.sets.map(({name, _id}) => [name, _id])
+        //     localStorage.sets = JSON.stringify(sets)
+        //     if (inputSetSearch) inputSetSearch.style.display = res.sets.length
+        // } 
     }
 
     let uiSets
