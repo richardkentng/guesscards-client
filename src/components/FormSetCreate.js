@@ -7,6 +7,10 @@ export default function FormSetCreate(props) {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        if (setName.trim() === '<') {
+            setSetName('')
+            return toast.warn('Invalid set name.')
+        }
         if (!setName) return toast.warn('Please provide a name for your set!')
         props.setCreate(setName)
         setSetName('')
