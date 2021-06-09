@@ -33,22 +33,22 @@ class SetShow extends React.Component {
 
         SetModel.show(this.props.match.params.id).then(res => {
 
-                //handle errors from server:
-                if(!('set' in res)) {
-                    //handle invalid set id response:
-                    if ('msg' in res && res.msg === 'Failed to find set by id.') {
-                        toast.warn('That set does not exist!')
-                        return this.props.history.push('/sets')
-                    }
-                    functions.handleAuthErrorsWithToasts(res)
-                    localStorage.setItem('uid', '')
-                    return this.props.history.push('/login')
-                } 
+            //handle errors from server:
+            if(!('set' in res)) {
+                //handle invalid set id response:
+                if ('msg' in res && res.msg === 'Failed to find set by id.') {
+                    toast.warn('That set does not exist!')
+                    return this.props.history.push('/sets')
+                }
+                functions.handleAuthErrorsWithToasts(res)
+                localStorage.setItem('uid', '')
+                return this.props.history.push('/login')
+            } 
 
-                this.setState({
-                    set: res.set,
-                    inputSetNameEdit: res.set.name
-                })
+            this.setState({
+                set: res.set,
+                inputSetNameEdit: res.set.name
+            })
         })
 
 
