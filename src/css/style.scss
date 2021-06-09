@@ -46,6 +46,31 @@ nav {
         list-style: none;
         margin-right: 10px;
         text-align: center;
+        .form-set-search {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            .set-search {
+                max-width: 120px;
+                margin-left: 10px;
+            }
+            .set-suggestions {
+                position: absolute;
+                background-color: white;
+                display: none;
+                transform: translateX(10px);
+                .set-suggestion {
+                    border: 2px solid $green;
+                    padding: 5px;
+                    .hl-gold {
+                        background-color: gold;
+                    }
+                }
+                .set-suggestion:hover, .set-suggestion:active {
+                    background-color: silver;
+                }
+            }
+        }
         .logout, .signup, .login {
             float: right;
         }
@@ -687,6 +712,9 @@ button {padding: 5px;}
     }
     .iframe {
         width: 100%;
+    }
+    input.set-search {
+        max-width: 50px !important;
     }
 }
 @media (max-width: 414px) {

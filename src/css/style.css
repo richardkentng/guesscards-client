@@ -37,6 +37,31 @@ nav ul {
   margin-right: 10px;
   text-align: center;
 }
+nav ul .form-set-search {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+nav ul .form-set-search .set-search {
+  max-width: 120px;
+  margin-left: 10px;
+}
+nav ul .form-set-search .set-suggestions {
+  position: absolute;
+  background-color: white;
+  display: none;
+  transform: translateX(10px);
+}
+nav ul .form-set-search .set-suggestions .set-suggestion {
+  border: 2px solid #6ed57d;
+  padding: 5px;
+}
+nav ul .form-set-search .set-suggestions .set-suggestion .hl-gold {
+  background-color: gold;
+}
+nav ul .form-set-search .set-suggestions .set-suggestion:hover, nav ul .form-set-search .set-suggestions .set-suggestion:active {
+  background-color: silver;
+}
 nav ul .logout, nav ul .signup, nav ul .login {
   float: right;
 }
@@ -1032,6 +1057,10 @@ button {
 
   .iframe {
     width: 100%;
+  }
+
+  input.set-search {
+    max-width: 50px !important;
   }
 }
 @media (max-width: 414px) {
