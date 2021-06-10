@@ -74,13 +74,19 @@ class FormFlashcardCreate extends React.Component {
     }
 
     onClickPaste = async (state) => {
-        //ensure that https is in use for paste to work
-        if ((!window.location.href.includes('localhost')) && window.location.href[4] !== 's') {
-            return window.location = window.location.href.replace('http', 'https')
+        try {
+            //ensure that https is in use for paste to work
+            if ((!window.location.href.includes('localhost')) && window.location.href[4] !== 's') {
+                return window.location = window.location.href.replace('http', 'https')
+            }
+            const clipText = await navigator.clipboard.readText()
+            if (!clipText) return toast.warn('clipboard is empty')
+            this.setState({ [state]: clipText })
+        } catch (e) {
+            if (e.name === 'NotAllowedError') return
+            else return console.log('Error trying to paste from clipboard: ', e)
         }
-        const clipText = await navigator.clipboard.readText()
-        if (!clipText) return toast.warn('clipboard is empty')
-        this.setState({ [state]: clipText })
+
     }
     
     render() {
