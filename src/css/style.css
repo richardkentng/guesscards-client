@@ -196,13 +196,14 @@ nav ul li *:hover {
 .cont-FlashCard {
   margin-bottom: 15px;
   background-color: white;
+  max-width: 100%;
 }
 
 .aFlashCard {
   display: flex;
 }
 .aFlashCard .cont-mark {
-  width: 30px;
+  width: 40px;
   background-color: #b8b8b8;
 }
 .aFlashCard .cont-mark:hover {
@@ -373,6 +374,21 @@ nav ul li *:hover {
 .header-set-show .btn-edit-set {
   height: 100%;
   width: 40px;
+}
+
+form.form-new-fcard input.new-ques, form.form-new-fcard input.new-ans {
+  width: 80%;
+  height: 31px;
+}
+form.form-new-fcard .btn-paste {
+  width: 20%;
+  height: 31px;
+  color: #727272;
+  padding: 0;
+}
+form.form-new-fcard .btn-paste img {
+  opacity: 0.7;
+  width: 20px;
 }
 
 .SetShow-grid {
