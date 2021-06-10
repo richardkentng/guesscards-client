@@ -1,5 +1,6 @@
 import React from 'react'
-// import SetModel from '../models/set'
+import imgPaste from '../images/paste.png'
+import { toast } from 'react-toastify'
 
 class FormFlashcardCreate extends React.Component {
 
@@ -71,6 +72,12 @@ class FormFlashcardCreate extends React.Component {
         el.style.backgroundColor = "pink"
         setTimeout(() => { el.style.backgroundColor = "white"}, 100)
     }
+
+    onClickPaste = async (state) => {
+        const clipText = await navigator.clipboard.readText()
+        if (!clipText.trim()) return toast.warn('clipboard is empty')
+        this.setState({ [state]: clipText })
+    }
     
     render() {
         return (
@@ -82,8 +89,16 @@ class FormFlashcardCreate extends React.Component {
                     value={this.state.ques}
                     autoFocus={true}
                     onChange={(e) => this.setState({ques: e.target.value})}
-                    className="new-ques w100p"
+                    className="new-ques"
                     />
+                    {/* paste button */}
+                    <button
+                    type="button"
+                    onClick={() => { this.onClickPaste('ques') }}
+                    className="btn-paste"
+                    >
+                    <img src={imgPaste} alt="paste"/>
+                    </button>
                 </div>
 
                 <div>
@@ -92,8 +107,16 @@ class FormFlashcardCreate extends React.Component {
                     type="text"
                     value={this.state.ans}
                     onChange={(e) => this.setState({ans: e.target.value})}
-                    className="new-ans w100p"
+                    className="new-ans"
                     />
+                    {/* paste button */}
+                    <button
+                    type="button"
+                    onClick={() => { this.onClickPaste('ans') }}
+                    className="btn-paste"
+                    >
+                    <img src={imgPaste} alt="paste"/>
+                    </button>
                 </div>
 
                 <button type="submit" className="w100p gray-72">Create Flashcard</button>
