@@ -106,6 +106,7 @@ class FormFlashcardCreate extends React.Component {
                     type="button"
                     onClick={() => { this.onClickPaste('ques') }}
                     className="btn-paste"
+                    tabIndex={-1}
                     >
                     <img src={imgPaste} alt="paste"/>
                     </button>
@@ -124,6 +125,7 @@ class FormFlashcardCreate extends React.Component {
                     type="button"
                     onClick={() => { this.onClickPaste('ans') }}
                     className="btn-paste"
+                    tabIndex={-1}
                     >
                     <img src={imgPaste} alt="paste"/>
                     </button>
