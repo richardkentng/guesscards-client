@@ -213,7 +213,7 @@ function Navbar(props) {
                     <form 
                     className="form-set-search" 
                     onSubmit={onSubmitSetSearch}
-                    style={{ display: location.pathname.startsWith('/sets') ? 'inline' : 'none' }}
+                    style={{ display: location.pathname.startsWith('/sets') ? 'inline-block' : 'none' }}
                     >
                         <input 
                             type="text" 
