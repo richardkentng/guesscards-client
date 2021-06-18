@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, useLocation } from 'react-router-dom'
 import AuthModel from '../models/auth'
 
 import { useRecoilState } from 'recoil'
@@ -11,6 +11,7 @@ import { toast } from 'react-toastify'
 
 function Navbar(props) {
     const [user, setUser] = useRecoilState(userState)
+    const location = useLocation()
 
     const logout = () => {
         localStorage.setItem('uid','')
@@ -205,11 +206,15 @@ function Navbar(props) {
                     <>
                     <li className="logout"><button onClick={logout} className="link-button"> Log Out</button></li>
 
-                    {!window.location.href.includes('/sets') && <li className="sets"><Link to="/sets">SETS</Link></li>}
+                    {!location.pathname.startsWith('/sets') && <li className="sets"><Link to="/sets">SETS</Link></li>}
 
                     <li className="gray username">{user.username}</li>
 
-                    <form className="form-set-search" onSubmit={onSubmitSetSearch}>
+                    <form 
+                    className="form-set-search" 
+                    onSubmit={onSubmitSetSearch}
+                    style={{ display: location.pathname.startsWith('/sets') ? 'inline' : 'none' }}
+                    >
                         <input 
                             type="text" 
                             className="set-search" 
