@@ -194,6 +194,11 @@ function Navbar(props) {
                 setSuggestions.style.display = 'none'
             }
         }
+
+        //if search box is empty, show all sets in dropdown
+        if (e.target.value.trim() === '') {
+            onChangeSetSearch()
+        }
     }
 
     return (
@@ -216,7 +221,7 @@ function Navbar(props) {
                     style={{ display: location.pathname.startsWith('/sets') ? 'inline-block' : 'none' }}
                     >
                         <input 
-                            type="text" 
+                            type="search" 
                             className="set-search" 
                             placeholder="set 🔍 [alt + /]"
                             onChange={onChangeSetSearch}
