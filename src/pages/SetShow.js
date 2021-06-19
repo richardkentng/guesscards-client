@@ -219,9 +219,9 @@ class SetShow extends React.Component {
     updateNumAnswersShown = () => {
         let numAnswersShown = 0
 
-        const contFcardEls = document.querySelectorAll('.cont-FlashCard')
-        contFcardEls.forEach(contFcard => {
-            if (contFcard.style.backgroundColor === colors.yellowRevealed) {
+        const flashcards = document.querySelectorAll('.cont-FlashCard')
+        flashcards.forEach(card => {
+            if (card.querySelector('.ans').style.display !== 'none') {
                 numAnswersShown++
             }
         })
