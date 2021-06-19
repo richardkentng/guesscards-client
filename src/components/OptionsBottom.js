@@ -53,10 +53,11 @@ function OptionsBottom(props) {
     }, [])
 
     const hideAnswers = () => {
-        const contFcardEls = document.querySelectorAll('.cont-FlashCard')
-        contFcardEls.forEach(contFcard => {
-            if (contFcard.style.backgroundColor === colors.yellowRevealed) {
-                contFcard.querySelector('.ques-ans').click()
+        const flashcards = document.querySelectorAll('.cont-FlashCard')
+        flashcards.forEach(card => {
+            const quesAns = card.querySelector('.ques-ans')
+            if (quesAns.querySelector('.ans').style.display !== 'none') {
+                quesAns.click()
             }
         })
     }
