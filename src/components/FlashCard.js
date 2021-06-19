@@ -68,7 +68,7 @@ function FlashCard(props) {
                 <div className="ques-ans" onClick={toggleDisplayAns}>
                     {props.score ?
                     (
-                        <>
+                        <p className="ques">
                             {[].concat(props.queryIndexes.map(([idx1, idx2, match, space]) => {
                                     return (
                                     <>
@@ -80,12 +80,12 @@ function FlashCard(props) {
                                     </>
                                     )
                             }))}
-                        </>
+                        </p>
                     ) 
                     :
-                    <p>{props.ques}</p>
+                    <p className="ques">{props.ques}</p>
                     }
-                    <p style={styleAns}>{props.ans}</p>
+                    <p className="ans" style={styleAns}>{props.ans}</p>
                 </div>
     
                 <div className="btn-edit-btn-del">
