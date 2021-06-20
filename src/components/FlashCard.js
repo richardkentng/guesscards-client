@@ -73,7 +73,7 @@ function FlashCard(props) {
                                     return (
                                     <>
                                     <span 
-                                        className={match === 'match' && 'query-match'}>
+                                        className={match === 'match' ? 'hl-green' : ''}>
                                         {props.ques.substring(idx1, idx2)}
                                     </span>
                                     {space === 'space' && <> </>}
