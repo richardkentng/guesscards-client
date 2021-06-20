@@ -3,26 +3,23 @@ import React, { useState } from 'react'
 function SearchBar(props) {
     const [quesQuery, setQuesQuery] = useState('')
 
-    function submitSearch(e) {
+    const onSubmit = (e) => {
         e.preventDefault()
         props.onSubmitFcardSearch(quesQuery)
-        setQuesQuery('')
     }
 
     return (
-        <form onSubmit={submitSearch} className="SearchBar-fcard-ques">
+        <form onSubmit={onSubmit} className="SearchBar-fcard-ques">
             <input
+                type="search"
                 placeholder="search questions"
                 value={quesQuery}
-                onChange={(e) => { setQuesQuery(e.target.value) }}
+                onChange={(e) => {
+                    setQuesQuery(e.target.value) 
+                    props.onSubmitFcardSearch(e.target.value)
+                }}
                 required={true}
             />
-            <button 
-                type="button" 
-                onClick={props.clearFcardSearch} 
-                className="gray-72">
-                _X_
-            </button>
         </form>
     )
 }
