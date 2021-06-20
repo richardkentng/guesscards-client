@@ -56,9 +56,6 @@ nav ul .form-set-search .set-suggestions .set-suggestion {
   border: 2px solid #6ed57d;
   padding: 5px;
 }
-nav ul .form-set-search .set-suggestions .set-suggestion .hl-gold {
-  background-color: gold;
-}
 nav ul .form-set-search .set-suggestions .set-suggestion:hover, nav ul .form-set-search .set-suggestions .set-suggestion:active {
   background-color: silver;
 }
@@ -107,6 +104,18 @@ nav ul li .link-button {
 }
 nav ul li *:hover {
   color: #2273ff;
+}
+
+.hl-gold {
+  background-color: gold;
+}
+
+.hl-green {
+  color: #129812;
+  color: black;
+  font-weight: 900;
+  background-color: #a6f585;
+  border-radius: 2px;
 }
 
 .nav-bb-out {

@@ -62,9 +62,6 @@ nav {
                 .set-suggestion {
                     border: 2px solid $green;
                     padding: 5px;
-                    .hl-gold {
-                        background-color: gold;
-                    }
                 }
                 .set-suggestion:hover, .set-suggestion:active {
                     background-color: silver;
@@ -120,6 +117,16 @@ nav {
             }
         }
     }
+}
+.hl-gold { 
+    background-color: gold;
+}
+.hl-green { 
+    color: rgb(18, 152, 18);
+    color: black;
+    font-weight: 900;
+    background-color: rgb(166, 245, 133);
+    border-radius: 2px;
 }
 .nav-bb-out {border-bottom: 5px solid rgb(233, 138, 138);}
 .nav-bb-in {border-bottom: 5px solid $green;}
