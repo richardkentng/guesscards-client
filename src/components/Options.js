@@ -93,7 +93,6 @@ function Options(props) {
             </button>
             <SearchBar 
             onSubmitFcardSearch={props.onSubmitFcardSearch}
-            clearFcardSearch={props.clearFcardSearch}
             />
 
         </div>
