@@ -232,19 +232,29 @@ class SetShow extends React.Component {
     onSubmitFcardSearch = (query) => {
         // console.log('============================SEARCH query: ', query);
         const set = {...this.state.set}
+
+        //if query is empty, reset score for cards
+        if (query.trim() === '')  {
+            set.cards = set.cards.map(card => {
+                return {...card, score: 0}
+            })
+            return this.setState({ set })
+        }
+
         let numCardMatches = 0
         const arrQuery = strToArr(query)
-
+        const neatQuery = arrQuery.join(' ')
         //calculate score for each card based off it's match to query
         set.cards.forEach(card => {
             // console.log('-------------------CARD ques: ', card.ques);
             card.score = 0
             card.queryIndexes = []
-            if (query.toLowerCase().trim() === card.ques.toLowerCase().trim()) { //check for perfect match
-                card.score = 9999
+            const arrQues = strToArr(card.ques)
+            const neatQues = arrQues.join(' ')
+            if (neatQuery === neatQues) { //check for perfect match
+                card.score = numChars(neatQues) + 3
                 card.queryIndexes = [[0, card.ques.length, 'match', 'no-space']]
             } else { //check for whole-word match
-                const arrQues = strToArr(card.ques)
                 arrQues.forEach(qWord => {
                     // console.log('-----word: ', qWord);
                     if (arrQuery.includes(qWord)) { //whole-word matching
@@ -258,7 +268,7 @@ class SetShow extends React.Component {
                             const indexOfSwordInQword = qWord.indexOf(sWord)
                             if (indexOfSwordInQword >= 0) arrPartialMatchesSwordInQword.push([sWord.length, indexOfSwordInQword])
                         })
-                        if (arrPartialMatchesSwordInQword.length && arrPartialMatchesSwordInQword[0][0] > 1) { //use partial match
+                        if (arrPartialMatchesSwordInQword.length) { //use partial match
                             arrPartialMatchesSwordInQword.sort((a, b) => b[0] - a[0])
 
                                 const indexOfSwordInQword = arrPartialMatchesSwordInQword[0][1]
@@ -275,12 +285,26 @@ class SetShow extends React.Component {
                         }
                     }
                 })
+                
+                //adjust score based on word order and position
+                const index = neatQues.indexOf(neatQuery)
+                if (index >= 0) {
+                    //award extra point for correct word order
+                    card.score = numChars(neatQuery) + 1
+                    //award extra point for matching at beginning
+                    if (index === 0) card.score++
+                }
+
             }
             if (card.score) numCardMatches ++
         })
 
         function strToArr(str) {
-            return str.toLowerCase().replace(/\s{2,}/g, ' ').trim().split(' ')
+            return str.trim().toLowerCase().replace(/[\n\t]/g, ' ').replace(/\s{2,}/g, ' ').split(' ')
+        }
+        function numChars(str) {
+            const matches = str.match(/\S/g)
+            return  matches ? matches.length : 0 
         }
 
         this.setState({ set })
@@ -295,12 +319,6 @@ class SetShow extends React.Component {
             })
         }
         else toast.error('no matches!', {autoClose: 1500})
-    }
-
-    clearFcardSearch = () => {
-        const set = {...this.state.set}
-        set.cards.forEach(card => card.score = 0)
-        this.setState({ set })
     }
 
     render() {
