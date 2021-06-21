@@ -7,6 +7,22 @@ function handleAuthErrorsWithToasts(res) {
     else toast.error('An error occured... The server did not respond with the proper data. Try logging in again.')
 }
 
+function clickLastRememberedSortButton() {
+    const lastBtn = document.querySelector(`.${localStorage.sort}`)
+    const btnSortNew = document.querySelector('.btn-sort-new')
+    setTimeout(() => {
+        if (lastBtn) {
+            if (lastBtn.classList.contains('btn-sort-mark') && lastBtn.style.display === 'none') {
+                return btnSortNew.click()
+            }
+            // console.log('going to click last button: ', lastBtn, 'in two seconds....');
+            return lastBtn.click()
+        }
+        btnSortNew.click()
+    }, 25)
+}
+
 module.exports = {
-    handleAuthErrorsWithToasts
+    handleAuthErrorsWithToasts,
+    clickLastRememberedSortButton
 }
