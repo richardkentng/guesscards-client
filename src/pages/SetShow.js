@@ -229,16 +229,22 @@ class SetShow extends React.Component {
         this.setState({ numAnswersShown })
     }
 
+    resetFcardQuesSearch = () => {
+        const set = {...this.state.set}
+        set.cards = set.cards.map(card => {
+            return {...card, score: 0}
+        })
+        functions.clickLastRememberedSortButton()
+        return this.setState({ set })
+    }
+
     onSubmitFcardSearch = (query) => {
         // console.log('============================SEARCH query: ', query);
         const set = {...this.state.set}
 
         //if query is empty, reset score for cards
         if (query.trim() === '')  {
-            set.cards = set.cards.map(card => {
-                return {...card, score: 0}
-            })
-            return this.setState({ set })
+            return this.resetFcardQuesSearch()
         }
 
         let numCardMatches = 0
@@ -307,18 +313,22 @@ class SetShow extends React.Component {
             return  matches ? matches.length : 0 
         }
 
-        this.setState({ set })
-
-        //show success message & sort cards, or show no-matches message
+        //handle match or no matches scenarios:
+        const quesSearchEl = document.querySelector('form.SearchBar-fcard-ques input')
         if (numCardMatches) {
             set.cards.sort((a, b) => b.score - a.score)
-            // enable sort buttons (exclude button.btn-sort-mark)
-            document.querySelectorAll('.btn-sort').forEach(btn => { 
-                if (btn.classList.contains('btn-sort-rand')) btn.style.opacity = 1
-                else if (!btn.classList.contains('btn-sort-mark')) btn.disabled = false 
-            })
+            this.setState({ set })
+
+            // remove active class from any sort buttons
+            const sortBtns = document.querySelectorAll('.btn-sort')
+            sortBtns.forEach(btn => btn.classList.remove('active'))
+            //un-redden text
+            quesSearchEl.classList.remove('red')
+        } else {
+            this.resetFcardQuesSearch()
+            //redden text
+            quesSearchEl.classList.add('red')
         }
-        else toast.error('no matches!', {autoClose: 1500})
     }
 
     render() {
@@ -384,7 +394,7 @@ class SetShow extends React.Component {
                         numCards={this.state.set.cards.length}
                         numMarked={numMarked}
                         onSubmitFcardSearch={this.onSubmitFcardSearch}
-                        clearFcardSearch={this.clearFcardSearch}
+                        resetFcardQuesSearch={this.resetFcardQuesSearch}
                         />
                         
                         {/* show flashcards! */}
