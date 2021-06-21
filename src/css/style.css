@@ -291,6 +291,11 @@ nav ul li *:hover {
   white-space: nowrap;
 }
 
+.btn-sort.active {
+  border: 1px solid #7e7e8f;
+  background-color: #e9c6e9;
+}
+
 .btn-sort-rand {
   width: 60px;
 }
@@ -580,7 +585,7 @@ form.form-new-fcard .btn-paste img {
 }
 
 .red-num-marked {
-  color: #e6a9a9 !important;
+  color: #e38a8a;
   font-weight: 800;
   font-size: 1rem;
 }

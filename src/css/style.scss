@@ -278,7 +278,10 @@ $options-bc: #999;
             white-space: nowrap;
         }
     }
-    
+}
+.btn-sort.active {
+    border: 1px solid rgb(126, 126, 143);
+    background-color: #e9c6e9;
 }
 
 .btn-sort-rand { width: 60px; }
@@ -552,9 +555,8 @@ form.form-new-fcard {
 .green {color: green}
 .white {color: white;}
 
-$redMarked: rgb(230, 169, 169) !important;
-.bgr {background-color: $redMarked;}
-.red-num-marked {color: $redMarked; font-weight: 800; font-size: 1rem;}
+.bgr {background-color: rgb(230, 169, 169) !important;}
+.red-num-marked {color: rgb(227, 138, 138); font-weight: 800; font-size: 1rem;}
 .bgg {background-color: green;}
 .bgb {background-color: blue;}
 .bgdb {background-color: dodgerblue;}
