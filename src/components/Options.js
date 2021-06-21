@@ -1,49 +1,28 @@
 import React, {useEffect} from 'react'
 import SearchBar from './SearchBar'
-import { toast } from 'react-toastify'
+import functions from '../partials/functions'
 
 function Options(props) {
 
     useEffect(() => {
-        document.querySelector('.btn-sort-new').disabled = true
-        if ('sort' in localStorage) {
-            const btnSort = document.querySelector(`.${localStorage.sort}`)
-            if (btnSort) btnSort.click()
-        }
+        functions.clickLastRememberedSortButton()        
     }, [])
 
 
-    function toggleDisabled(e) {
-        //ensure that target is a button (because buttons have a class that describes their sort type)
-        let btnClicked = e.target
-        while (btnClicked.localName !== 'button') {
-            btnClicked = btnClicked.parentElement
-        }
+    function colorSortButtons(e) {
+        const btns = [...document.querySelectorAll('.btn-sort')]
 
-        //set 'sort' in localStorage (exclude marked)
-        if (!btnClicked.classList.contains('btn-sort-mark')) {
-            let btnSortClass
-            btnClicked.classList.forEach(c => {
-                if (c.includes('btn-sort-')) btnSortClass = c
-            })
-            if (!btnSortClass) return toast.error(`Could not find class with "btn-sort-" from clicked target.
-            LocalStorage did not store a value for "sort"`)
-            localStorage.setItem('sort', btnSortClass)
-        }
+        //record class of clicked button in localStorage.sort
+        let btnSortClass
+        e.currentTarget.classList.forEach(c => {
+            if (c.includes('btn-sort-')) btnSortClass = c
+        })
+        if (btnSortClass) localStorage.setItem('sort', btnSortClass)
 
-        //disable clicked button (exluding button.btn-sort-mark)
-        //enable other buttons
-        const btns = document.querySelectorAll('.btn-sort')
+        //only give clicked btn-sort a class of active
         btns.forEach(btn => {
-            //ignore btn-sort-mark button
-            if (!btn.classList.contains('btn-sort-mark')) {
-                if (btn === btnClicked) {
-                    if (btn.classList.contains('btn-sort-rand')) btn.style.opacity = '0.5'
-                    else { btn.disabled = true }
-                }
-                else if (btn.classList.contains('btn-sort-rand')) btn.style.opacity = '1'
-                else { btn.disabled = false }
-            }
+            if (btn === e.currentTarget) btn.classList.add('active')
+            else btn.classList.remove('active')
         })
     }
 
@@ -54,7 +33,7 @@ function Options(props) {
             <button 
                 onClick={(e) => {
                     props.sortByRandom()
-                    toggleDisabled(e)
+                    colorSortButtons(e)
                 }}
                 className="btn-sort btn-sort-rand" 
                 >
@@ -63,7 +42,7 @@ function Options(props) {
             <button
                 onClick={(e) => {
                     props.sortByCreatedAt('desc')
-                    toggleDisabled(e)
+                    colorSortButtons(e)
                 }}
                 className="btn-sort btn-sort-new"
                 >
@@ -72,7 +51,7 @@ function Options(props) {
             <button
                 onClick={(e) => {
                     props.sortByCreatedAt('asc')
-                    toggleDisabled(e)
+                    colorSortButtons(e)
                 }}
                 className="btn-sort btn-sort-old" 
                 >
@@ -81,7 +60,7 @@ function Options(props) {
             <button
                 onClick={(e) => {
                     props.sortByMarked()
-                    toggleDisabled(e)
+                    colorSortButtons(e)
                 }}
                 className="btn-sort btn-sort-mark"
                 style={{display: props.numMarked ? 'inline' : 'none'}}
@@ -93,6 +72,7 @@ function Options(props) {
             </button>
             <SearchBar 
             onSubmitFcardSearch={props.onSubmitFcardSearch}
+            resetFcardQuesSearch={props.resetFcardQuesSearch}
             />
 
         </div>
