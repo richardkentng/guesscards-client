@@ -15,11 +15,24 @@ function FlashCard(props) {
                 FUNCTIONS  to TOGGLE DISPLAY
     *********************************************/
     
-    const toggleDisplayCardvsEditForm = () => {
+    const toggleDisplayCardvsEditForm = (e) => {
         //hide/show flashcard
         setStyleFlashCard(toggleBlockNone(styleFlashCard))
         //hide/show flashcard's edit form
         setStyleFlashCardeForm(toggleBlockNone(styleFlashCardeForm))
+
+        //if about to show edit form, then focus edit-question field
+        if (e.currentTarget.classList.contains('btn-edit-fcard')) {
+            const editForm = [...document.body.querySelectorAll(`form.form-flashcard-edit`)].find(form => form.id === props._id)
+            const quesField = editForm.querySelector('textarea[name="ques"]')
+            setTimeout(() => {
+                quesField.focus()
+                //move cursor to end of text
+                const temp = quesField.value
+                quesField.value = ''
+                quesField.value = temp
+            }, 20)
+        }
     }
 
     const toggleDisplayAns = () => {
