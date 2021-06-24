@@ -14,7 +14,7 @@ function FormFlashcardEdit(props) {
         updateCard.ques = ques
         updateCard.ans = ans
         props.flashcardEdit(updateCard)
-        props.toggleDisplayCardvsEditForm()
+        props.toggleDisplayCardvsEditForm(e)
     }
 
     return (
