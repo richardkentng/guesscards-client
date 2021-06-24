@@ -18,7 +18,7 @@ function FormFlashcardEdit(props) {
     }
 
     return (
-        <form onSubmit={onSubmit} className="form-flashcard-edit FlashCard" style={props.styleFlashCardeForm}>
+        <form onSubmit={onSubmit} className="form-flashcard-edit FlashCard" style={props.styleFlashCardeForm} id={props._id}>
             <div className="ques-cancel">
                 <textarea 
                 type="text"
